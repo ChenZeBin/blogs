@@ -431,7 +431,7 @@ NSLog((NSString *)&__NSConstantStringImpl__var_folders_cy_nyx4t0n94m31zjvjp52g6h
 
 以下是引用别人的，我可以理解，但是没法写demo去验证
 
-> 这是由变量的生命周期决定的。对于自动变量，当作用域结束时，会被系统自动回收，而block很可能是在超出自动变量作用域的时候去执行，如果之前没有捕获自动变量，那么后面执行的时候，自动变量已经被回收了，得不到正确的值。对于static局部变量，它的生命周期不会因为作用域结束而结束，所以block只需要捕获这个变量的地址，在执行的时候通过这个地址去获取变量的值，这样可以获得变量的最新的值。gao'mi而对于全局变量，在任何位置都可以直接读取变量的值。
+> 这是由变量的生命周期决定的。对于自动变量，当作用域结束时，会被系统自动回收，而block很可能是在超出自动变量作用域的时候去执行，如果之前没有捕获自动变量，那么后面执行的时候，自动变量已经被回收了，得不到正确的值。对于static局部变量，它的生命周期不会因为作用域结束而结束，所以block只需要捕获这个变量的地址，在执行的时候通过这个地址去获取变量的值，这样可以获得变量的最新的值。而对于全局变量，在任何位置都可以直接读取变量的值。
 
 # `block`捕获`self`变量
 
@@ -460,11 +460,151 @@ static void _I_Test_test(Test * self, SEL _cmd) {
 
 ## `block`类型
 
-接下来，
+接下来，研究下`block`的父类是啥,先将文件改为`MRC`，因为`ARC`下会自动帮我们`copy`到堆上，影响我们去分析
 
 ```
-NSLog(@"%@\n %@\n %@\n %@", [block class], [[block class] superclass], [[[block class] superclass] superclass], [[[[block class] superclass] superclass] superclass]);
+
+int c = 10;
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        
+        int a = 10;
+        void (^block)(void) = ^{
+            
+            NSLog(@"Hello World!--%d", a);
+        };
+        
+        block();
+        
+        
+        NSLog(@"捕获局部的block%@\n %@\n %@\n %@", [block class], [[block class] superclass], [[[block class] superclass] superclass], [[[[block class] superclass] superclass] superclass]);
+        
+        void (^block1)(void) = ^{
+            NSLog(@"aaa");
+        };
+        
+        NSLog(@"啥都没有捕获的block:%@",[block1 class]);
+        
+        static int b = 10;
+        void (^block2)(void) = ^{
+            NSLog(@"aaa:%d",b);
+        };
+        
+        NSLog(@"捕获静态变量的block:%@",[block2 class]);
+        
+        
+        void (^block3)(void) = ^{
+            NSLog(@"捕获全局变量的block:%d",c);
+        };
+        
+        NSLog(@"捕获全局变量的block:%@",[block3 class]);
+        
+        
+        NSLog(@"对__NSGlobalBlock__的block进行copy:%@",[[block3 copy] class]);
+        
+        NSLog(@"对block__NSStackBlock__的block进行copy:%@",[[block copy] class]);
+        
+        return 0;
+        
+    }
+    return 0;
+}
+
+// 输出如下：
+
+捕获局部的block__NSStackBlock__
+ __NSStackBlock
+ NSBlock
+ NSObject
+啥都没有捕获的block:__NSGlobalBlock__
+捕获静态变量的block:__NSGlobalBlock__
+捕获全局变量的block:__NSGlobalBlock__
+对__NSGlobalBlock__的block进行copy:__NSGlobalBlock__
+对block__NSStackBlock__的block进行copy:__NSMallocBlock__
+
 ```
+
+因此可以看出，`block`还是源于`NSObject`，所以`block`也是一个`oc`对象
+
+`MRC`下
+
+捕获局部变量`block`类型为`__NSStackBlock__`，是存储在栈上的
+
+没有捕获变量，捕获静态变量，全局变量，`block`类型为`__NSGlobalBlock__ `,是存储在程序的数据区
+
+如果对`__NSGlobalBlock__ `类型的`block`进行`copy`操作，还是`__NSGlobalBlock__ `类型，但是对`block__NSStackBlock__ `类型的`block`进行`copy`就会变成`__NSMallocBlock__ `类型，是存储在堆上
+
+`ARC`下的输出结果
+
+```
+捕获局部的block__NSMallocBlock__
+ __NSMallocBlock
+ NSBlock
+ NSObject
+啥都没有捕获的block:__NSGlobalBlock__
+捕获静态变量的block:__NSGlobalBlock__
+捕获全局变量的block:__NSGlobalBlock__
+对__NSGlobalBlock__的block进行copy:__NSGlobalBlock__
+对block__NSStackBlock__的block进行copy:__NSMallocBlock__
+```
+
+从输出结果可以看出：在`ARC`下，会自动将`__NSStackBlock__`的`block`进行`copy`让其变成堆上的`block`
+
+**通过这个知识点，我们可以知道`MRC`下的`block`使用，如果是栈上`block`其实是一种很危险的存在的，为啥说他很危险呢，因为栈中的变量是出了作用域就会被释放的，但是`block`往往是用于回调的，所以可能存在出了作用域了，但是回调这个栈的`block`的时候，就会崩溃了，因为这个`block`已经释放了，那么这时候使用的这个指针其实是一个野指针了，这也就是为什么，`ARC`下会自动将栈上的`block`自动的`copy`下**
+
+实验代码:
+
+将项目改为`MRC`
+
+```
+__weak id ptr = nil;
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    int a = 10;
+    void(^block)(void) = ^{
+        NSLog(@"aaa--:%d",a);
+    };
+    
+    ptr = [block copy];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    Block block = ptr;
+    
+    block();
+}
+
+```
+
+如果这个`block`不用`copy`的话，那么回调的时候肯定崩溃，因为不`copy`的话，他是一个栈上的`block`，这时候回调已经野指针了，所以需要`copy`
+
+**如果你的项目中遇到崩溃日志是蹦在block中，又是野指针的，又是MRC文件的话，那么十有八九就是这种情况了**
+
+### 为啥`block`属性要用`copy`
+
+`MRC`下之所以用`copy`，其实就是为了防止上面那种情况，如果你确定你的`block`是全局`block`那么用`retain`也行，但是做业务的时候，建议还是用`copy`稳妥
+
+`ARC`下其实用`strong`和`copy`都一样了，因为`ARC`会自动`copy`，但是一般我们还是用`copy`，为啥，因为如果哪天这个文件改`MRC`了呢；第二,规范，统一，毕竟大家基本都是用`copy`
+
+**block捕获__block的变量会怎么样呢？**
+
+其实我们想下原理，__block
+
+
+
+
+
+
+
+
 
 
 
