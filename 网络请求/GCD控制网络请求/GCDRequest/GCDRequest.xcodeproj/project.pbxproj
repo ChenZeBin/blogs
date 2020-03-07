@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE79746E241007520010F5DB /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE79746D241007520010F5DB /* NotificationCenter.framework */; };
+		CE797479241007520010F5DB /* aaaa.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE79746B241007520010F5DB /* aaaa.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CEB187E123F7CDC800F2BE74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187E023F7CDC800F2BE74 /* AppDelegate.m */; };
 		CEB187E423F7CDC800F2BE74 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187E323F7CDC800F2BE74 /* SceneDelegate.m */; };
 		CEB187E723F7CDC800F2BE74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187E623F7CDC800F2BE74 /* ViewController.m */; };
@@ -16,7 +18,33 @@
 		CEB187F223F7CDCA00F2BE74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187F123F7CDCA00F2BE74 /* main.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CE797477241007520010F5DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB187D423F7CDC800F2BE74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE79746A241007520010F5DB;
+			remoteInfo = aaaa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CE79747A241007520010F5DB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CE797479241007520010F5DB /* aaaa.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CE79746B241007520010F5DB /* aaaa.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = aaaa.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE79746D241007520010F5DB /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		CEB187DC23F7CDC800F2BE74 /* GCDRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB187DF23F7CDC800F2BE74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEB187E023F7CDC800F2BE74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,6 +60,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE797468241007520010F5DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE79746E241007520010F5DB /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB187D923F7CDC800F2BE74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +78,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE79746C241007520010F5DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE79746D241007520010F5DB /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEB187D323F7CDC800F2BE74 = {
 			isa = PBXGroup;
 			children = (
 				CEB187DE23F7CDC800F2BE74 /* GCDRequest */,
+				CE79746C241007520010F5DB /* Frameworks */,
 				CEB187DD23F7CDC800F2BE74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB187DC23F7CDC800F2BE74 /* GCDRequest.app */,
+				CE79746B241007520010F5DB /* aaaa.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +125,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CE79746A241007520010F5DB /* aaaa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE79747D241007520010F5DB /* Build configuration list for PBXNativeTarget "aaaa" */;
+			buildPhases = (
+				CE797467241007520010F5DB /* Sources */,
+				CE797468241007520010F5DB /* Frameworks */,
+				CE797469241007520010F5DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = aaaa;
+			productName = aaaa;
+			productReference = CE79746B241007520010F5DB /* aaaa.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CEB187DB23F7CDC800F2BE74 /* GCDRequest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEB187F523F7CDCA00F2BE74 /* Build configuration list for PBXNativeTarget "GCDRequest" */;
@@ -86,10 +149,12 @@
 				CEB187D823F7CDC800F2BE74 /* Sources */,
 				CEB187D923F7CDC800F2BE74 /* Frameworks */,
 				CEB187DA23F7CDC800F2BE74 /* Resources */,
+				CE79747A241007520010F5DB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CE797478241007520010F5DB /* PBXTargetDependency */,
 			);
 			name = GCDRequest;
 			productName = GCDRequest;
@@ -105,6 +170,9 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = chenzebin;
 				TargetAttributes = {
+					CE79746A241007520010F5DB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					CEB187DB23F7CDC800F2BE74 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -124,11 +192,19 @@
 			projectRoot = "";
 			targets = (
 				CEB187DB23F7CDC800F2BE74 /* GCDRequest */,
+				CE79746A241007520010F5DB /* aaaa */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE797469241007520010F5DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB187DA23F7CDC800F2BE74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +218,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE797467241007520010F5DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB187D823F7CDC800F2BE74 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +237,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE797478241007520010F5DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE79746A241007520010F5DB /* aaaa */;
+			targetProxy = CE797477241007520010F5DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CEB187E823F7CDC800F2BE74 /* Main.storyboard */ = {
@@ -175,6 +266,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CE79747B241007520010F5DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = aaaa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chenzebin.GCDRequest.aaaa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE79747C241007520010F5DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = aaaa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = chenzebin.GCDRequest.aaaa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CEB187F323F7CDCA00F2BE74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -320,6 +445,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE79747D241007520010F5DB /* Build configuration list for PBXNativeTarget "aaaa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE79747B241007520010F5DB /* Debug */,
+				CE79747C241007520010F5DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CEB187D723F7CDC800F2BE74 /* Build configuration list for PBXProject "GCDRequest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
