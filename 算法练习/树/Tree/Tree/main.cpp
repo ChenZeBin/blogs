@@ -28,6 +28,33 @@ class Tree {
 private:
 
 public:
+    
+    vector<double> averageOfLevels(Node* root) {
+
+        if (root == nullptr) return {};
+
+        queue<Node *> q;
+        q.push(root);
+        vector<double> vec;
+        while (!q.empty()) {
+            int len = (int)q.size();
+
+            double sum = 0.0;
+            while (len--) {
+                Node *top = q.front();
+                q.pop();
+
+                if (top->left) q.push(top->left);
+                if (top->right) q.push(top->right);
+
+                sum += top->val;
+            }
+
+            vec.push_back(sum / len);
+        }
+        return vec;
+    }
+    
     // 根据数组创建二叉树，数组'#'表示空结点
     Node *initTree(vector<int> vec) {
         if (vec.front() == '#') return nullptr;
@@ -83,6 +110,32 @@ public:
         }
         
         return res;
+    }
+
+    // 层序遍历变形，求深度
+    int levelToDeep(Node *root) {
+        if (root == nullptr) return 0;
+        
+        queue<Node *> q;
+        
+        q.push(root);
+        
+        int count = 0;
+        
+        while (!q.empty()) {
+            count++;
+            int len = (int)q.size();
+            
+            while (len--) {
+                Node *top = q.front();
+                q.pop();
+                
+                if (top->left) q.push(top->left);
+                if (top->right) q.push(top->right);
+            }
+        }
+        
+        return count;
     }
     
     vector<Node *> preorder(Node *root) {
@@ -196,6 +249,74 @@ public:
         
         return vec;
     }
+    
+    vector<string> dfsToPats(Node *root) {
+        
+        if (root == nullptr) return {};
+        
+        vector<string> paths;
+        
+        stack<Node *> nodeSk;
+        nodeSk.push(root);
+        
+        stack<string> pathSk;
+        pathSk.push(to_string(root->val));
+ 
+        while (!nodeSk.empty()) {
+            Node *top = nodeSk.top();
+            nodeSk.pop();
+            
+            string path = pathSk.top();
+            pathSk.pop();
+            
+            if (top->left == nullptr && top->right == nullptr) {
+                paths.push_back(path);
+            }
+            
+            if (top->right) {
+                nodeSk.push(top->right);
+                pathSk.push(path+"->"+to_string(top->right->val));
+            }
+            
+            if (top->left) {
+                nodeSk.push(top->left);
+                pathSk.push(path+"->"+to_string(top->left->val));
+            }
+            
+        }
+        
+        return paths;
+    }
+    
+    // 求最长直径，注意不是最大深度哦
+//    int diameter(Node *root) {
+//
+//    }
+    
+    int majorityElement(vector<int>& nums) {
+        map<int,int> mp;
+
+        for (int i : nums) {
+            map<int, int>::iterator iter = mp.find(i);
+
+            if (iter != mp.end()) {
+                mp[i] = mp[i] + 1;
+            } else {
+                mp[i] = 1;
+            }
+        }
+
+        int max1 = 0;
+
+        map<int,int>::iterator iter;
+        iter = mp.begin();
+        while (iter != mp.end()) {
+            max1 = max(max1,iter->second);
+            iter++;
+        }
+
+        return max1 / 2;
+    }
 };
 
 int main(int argc, const char * argv[]) {
@@ -203,7 +324,9 @@ int main(int argc, const char * argv[]) {
     Tree tree;
     
     // 建立二叉树
-    vector<int> vec = {2,3,4,5,'#',6,9,10,11,'#'};
+//    vector<int> vec = {2,3,4,5,'#',6,9,'#',11};
+    vector<int> vec = {3,2,3};
+    tree.majorityElement(vec);
     
     Node *root = tree.initTree(vec);
     
@@ -223,5 +346,14 @@ int main(int argc, const char * argv[]) {
     cout<<"深度遍历"<<endl;
     tree.dfs(root);
     
+    cout<<"层序遍历求深度"<<tree.levelToDeep(root)<<endl;
+    
+    cout<<"深度遍历求路径"<<endl;
+    for (string s : tree.dfsToPats(root)) {
+        cout<<"路径："<<s<<endl;
+    }
+    
+    tree.averageOfLevels(root);
+        
     return 0;
 }

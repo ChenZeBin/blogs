@@ -12,6 +12,7 @@
 #include <queue>
 #include <map>
 #include <iterator>
+#import "KMP.cpp"
 
 using namespace std;
 
@@ -270,6 +271,10 @@ int main(int argc, const char * argv[]) {
 
     auto q = i1->first;
     auto ss = i1->second;
+    
+    KMP k;
+    
+    
 
     
     return 0;

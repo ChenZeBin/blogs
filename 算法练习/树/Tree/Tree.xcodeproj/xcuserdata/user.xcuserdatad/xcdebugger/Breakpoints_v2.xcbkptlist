@@ -3,4 +3,54 @@
    uuid = "AF7F3714-1461-4584-9963-DC9C4E2231F5"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC83760D-DAAD-4BB0-A30A-AD3E5FAF9CC3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tree/main.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "majorityElement(nums)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC83760D-DAAD-4BB0-A30A-AD3E5FAF9CC3 - 4409235ee37a84e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tree::majorityElement(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;&amp;)"
+                  moduleName = "Tree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/blogs/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/%E6%A0%91/Tree/Tree/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "299"
+                  endingLineNumber = "299"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "BC83760D-DAAD-4BB0-A30A-AD3E5FAF9CC3 - 4409235ee37a84e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tree::majorityElement(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;&amp;)"
+                  moduleName = "Tree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/blogs/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/%E6%A0%91/Tree/Tree/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "299"
+                  endingLineNumber = "299"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

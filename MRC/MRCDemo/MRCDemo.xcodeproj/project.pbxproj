@@ -7,46 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CEB187E123F7CDC800F2BE74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187E023F7CDC800F2BE74 /* AppDelegate.m */; };
-		CEB187E423F7CDC800F2BE74 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187E323F7CDC800F2BE74 /* SceneDelegate.m */; };
-		CEB187E723F7CDC800F2BE74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187E623F7CDC800F2BE74 /* ViewController.m */; };
-		CEB187EA23F7CDC800F2BE74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB187E823F7CDC800F2BE74 /* Main.storyboard */; };
-		CEB187EC23F7CDCA00F2BE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB187EB23F7CDCA00F2BE74 /* Assets.xcassets */; };
-		CEB187EF23F7CDCA00F2BE74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB187ED23F7CDCA00F2BE74 /* LaunchScreen.storyboard */; };
-		CEB187F223F7CDCA00F2BE74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187F123F7CDCA00F2BE74 /* main.m */; };
+		CECCC1AF241BD85F0007380E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCC1AE241BD85F0007380E /* AppDelegate.m */; };
+		CECCC1B2241BD85F0007380E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCC1B1241BD85F0007380E /* SceneDelegate.m */; };
+		CECCC1B5241BD85F0007380E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCC1B4241BD85F0007380E /* ViewController.m */; };
+		CECCC1B8241BD85F0007380E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECCC1B6241BD85F0007380E /* Main.storyboard */; };
+		CECCC1BA241BD8610007380E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCC1B9241BD8610007380E /* Assets.xcassets */; };
+		CECCC1BD241BD8610007380E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECCC1BB241BD8610007380E /* LaunchScreen.storyboard */; };
+		CECCC1C0241BD8610007380E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCC1BF241BD8610007380E /* main.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		CE79747A241007520010F5DB /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		CE79746D241007520010F5DB /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		CEB187DC23F7CDC800F2BE74 /* GCDRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB187DF23F7CDC800F2BE74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CEB187E023F7CDC800F2BE74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CEB187E223F7CDC800F2BE74 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		CEB187E323F7CDC800F2BE74 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		CEB187E523F7CDC800F2BE74 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CEB187E623F7CDC800F2BE74 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CEB187E923F7CDC800F2BE74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CEB187EB23F7CDCA00F2BE74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CEB187EE23F7CDCA00F2BE74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CEB187F023F7CDCA00F2BE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEB187F123F7CDCA00F2BE74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CECCC1AA241BD85F0007380E /* MRCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECCC1AD241BD85F0007380E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CECCC1AE241BD85F0007380E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CECCC1B0241BD85F0007380E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		CECCC1B1241BD85F0007380E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		CECCC1B3241BD85F0007380E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CECCC1B4241BD85F0007380E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CECCC1B7241BD85F0007380E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CECCC1B9241BD8610007380E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CECCC1BC241BD8610007380E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CECCC1BE241BD8610007380E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CECCC1BF241BD8610007380E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CEB187D923F7CDC800F2BE74 /* Frameworks */ = {
+		CECCC1A7241BD85F0007380E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,85 +42,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE79746C241007520010F5DB /* Frameworks */ = {
+		CECCC1A1241BD85F0007380E = {
 			isa = PBXGroup;
 			children = (
-				CE79746D241007520010F5DB /* NotificationCenter.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CEB187D323F7CDC800F2BE74 = {
-			isa = PBXGroup;
-			children = (
-				CEB187DE23F7CDC800F2BE74 /* GCDRequest */,
-				CE79746C241007520010F5DB /* Frameworks */,
-				CEB187DD23F7CDC800F2BE74 /* Products */,
+				CECCC1AC241BD85F0007380E /* MRCDemo */,
+				CECCC1AB241BD85F0007380E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CEB187DD23F7CDC800F2BE74 /* Products */ = {
+		CECCC1AB241BD85F0007380E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEB187DC23F7CDC800F2BE74 /* GCDRequest.app */,
+				CECCC1AA241BD85F0007380E /* MRCDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEB187DE23F7CDC800F2BE74 /* GCDRequest */ = {
+		CECCC1AC241BD85F0007380E /* MRCDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CEB187DF23F7CDC800F2BE74 /* AppDelegate.h */,
-				CEB187E023F7CDC800F2BE74 /* AppDelegate.m */,
-				CEB187E223F7CDC800F2BE74 /* SceneDelegate.h */,
-				CEB187E323F7CDC800F2BE74 /* SceneDelegate.m */,
-				CEB187E523F7CDC800F2BE74 /* ViewController.h */,
-				CEB187E623F7CDC800F2BE74 /* ViewController.m */,
-				CEB187E823F7CDC800F2BE74 /* Main.storyboard */,
-				CEB187EB23F7CDCA00F2BE74 /* Assets.xcassets */,
-				CEB187ED23F7CDCA00F2BE74 /* LaunchScreen.storyboard */,
-				CEB187F023F7CDCA00F2BE74 /* Info.plist */,
-				CEB187F123F7CDCA00F2BE74 /* main.m */,
+				CECCC1AD241BD85F0007380E /* AppDelegate.h */,
+				CECCC1AE241BD85F0007380E /* AppDelegate.m */,
+				CECCC1B0241BD85F0007380E /* SceneDelegate.h */,
+				CECCC1B1241BD85F0007380E /* SceneDelegate.m */,
+				CECCC1B3241BD85F0007380E /* ViewController.h */,
+				CECCC1B4241BD85F0007380E /* ViewController.m */,
+				CECCC1B6241BD85F0007380E /* Main.storyboard */,
+				CECCC1B9241BD8610007380E /* Assets.xcassets */,
+				CECCC1BB241BD8610007380E /* LaunchScreen.storyboard */,
+				CECCC1BE241BD8610007380E /* Info.plist */,
+				CECCC1BF241BD8610007380E /* main.m */,
 			);
-			path = GCDRequest;
+			path = MRCDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEB187DB23F7CDC800F2BE74 /* GCDRequest */ = {
+		CECCC1A9241BD85F0007380E /* MRCDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEB187F523F7CDCA00F2BE74 /* Build configuration list for PBXNativeTarget "GCDRequest" */;
+			buildConfigurationList = CECCC1C3241BD8610007380E /* Build configuration list for PBXNativeTarget "MRCDemo" */;
 			buildPhases = (
-				CEB187D823F7CDC800F2BE74 /* Sources */,
-				CEB187D923F7CDC800F2BE74 /* Frameworks */,
-				CEB187DA23F7CDC800F2BE74 /* Resources */,
-				CE79747A241007520010F5DB /* Embed App Extensions */,
+				CECCC1A6241BD85F0007380E /* Sources */,
+				CECCC1A7241BD85F0007380E /* Frameworks */,
+				CECCC1A8241BD85F0007380E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GCDRequest;
-			productName = GCDRequest;
-			productReference = CEB187DC23F7CDC800F2BE74 /* GCDRequest.app */;
+			name = MRCDemo;
+			productName = MRCDemo;
+			productReference = CECCC1AA241BD85F0007380E /* MRCDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CEB187D423F7CDC800F2BE74 /* Project object */ = {
+		CECCC1A2241BD85F0007380E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = chenzebin;
 				TargetAttributes = {
-					CEB187DB23F7CDC800F2BE74 = {
+					CECCC1A9241BD85F0007380E = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = CEB187D723F7CDC800F2BE74 /* Build configuration list for PBXProject "GCDRequest" */;
+			buildConfigurationList = CECCC1A5241BD85F0007380E /* Build configuration list for PBXProject "MRCDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -142,56 +118,56 @@
 				en,
 				Base,
 			);
-			mainGroup = CEB187D323F7CDC800F2BE74;
-			productRefGroup = CEB187DD23F7CDC800F2BE74 /* Products */;
+			mainGroup = CECCC1A1241BD85F0007380E;
+			productRefGroup = CECCC1AB241BD85F0007380E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEB187DB23F7CDC800F2BE74 /* GCDRequest */,
+				CECCC1A9241BD85F0007380E /* MRCDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CEB187DA23F7CDC800F2BE74 /* Resources */ = {
+		CECCC1A8241BD85F0007380E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB187EF23F7CDCA00F2BE74 /* LaunchScreen.storyboard in Resources */,
-				CEB187EC23F7CDCA00F2BE74 /* Assets.xcassets in Resources */,
-				CEB187EA23F7CDC800F2BE74 /* Main.storyboard in Resources */,
+				CECCC1BD241BD8610007380E /* LaunchScreen.storyboard in Resources */,
+				CECCC1BA241BD8610007380E /* Assets.xcassets in Resources */,
+				CECCC1B8241BD85F0007380E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CEB187D823F7CDC800F2BE74 /* Sources */ = {
+		CECCC1A6241BD85F0007380E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB187E723F7CDC800F2BE74 /* ViewController.m in Sources */,
-				CEB187E123F7CDC800F2BE74 /* AppDelegate.m in Sources */,
-				CEB187F223F7CDCA00F2BE74 /* main.m in Sources */,
-				CEB187E423F7CDC800F2BE74 /* SceneDelegate.m in Sources */,
+				CECCC1B5241BD85F0007380E /* ViewController.m in Sources */,
+				CECCC1AF241BD85F0007380E /* AppDelegate.m in Sources */,
+				CECCC1C0241BD8610007380E /* main.m in Sources */,
+				CECCC1B2241BD85F0007380E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEB187E823F7CDC800F2BE74 /* Main.storyboard */ = {
+		CECCC1B6241BD85F0007380E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CEB187E923F7CDC800F2BE74 /* Base */,
+				CECCC1B7241BD85F0007380E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		CEB187ED23F7CDCA00F2BE74 /* LaunchScreen.storyboard */ = {
+		CECCC1BB241BD8610007380E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CEB187EE23F7CDCA00F2BE74 /* Base */,
+				CECCC1BC241BD8610007380E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -199,7 +175,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CEB187F323F7CDCA00F2BE74 /* Debug */ = {
+		CECCC1C1241BD8610007380E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -257,7 +233,7 @@
 			};
 			name = Debug;
 		};
-		CEB187F423F7CDCA00F2BE74 /* Release */ = {
+		CECCC1C2241BD8610007380E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -309,33 +285,35 @@
 			};
 			name = Release;
 		};
-		CEB187F623F7CDCA00F2BE74 /* Debug */ = {
+		CECCC1C4241BD8610007380E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GCDRequest/Info.plist;
+				INFOPLIST_FILE = MRCDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = chenzebin.GCDRequest;
+				PRODUCT_BUNDLE_IDENTIFIER = chenzebin.MRCDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		CEB187F723F7CDCA00F2BE74 /* Release */ = {
+		CECCC1C5241BD8610007380E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GCDRequest/Info.plist;
+				INFOPLIST_FILE = MRCDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = chenzebin.GCDRequest;
+				PRODUCT_BUNDLE_IDENTIFIER = chenzebin.MRCDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -344,25 +322,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEB187D723F7CDC800F2BE74 /* Build configuration list for PBXProject "GCDRequest" */ = {
+		CECCC1A5241BD85F0007380E /* Build configuration list for PBXProject "MRCDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEB187F323F7CDCA00F2BE74 /* Debug */,
-				CEB187F423F7CDCA00F2BE74 /* Release */,
+				CECCC1C1241BD8610007380E /* Debug */,
+				CECCC1C2241BD8610007380E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEB187F523F7CDCA00F2BE74 /* Build configuration list for PBXNativeTarget "GCDRequest" */ = {
+		CECCC1C3241BD8610007380E /* Build configuration list for PBXNativeTarget "MRCDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEB187F623F7CDCA00F2BE74 /* Debug */,
-				CEB187F723F7CDCA00F2BE74 /* Release */,
+				CECCC1C4241BD8610007380E /* Debug */,
+				CECCC1C5241BD8610007380E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CEB187D423F7CDC800F2BE74 /* Project object */;
+	rootObject = CECCC1A2241BD85F0007380E /* Project object */;
 }

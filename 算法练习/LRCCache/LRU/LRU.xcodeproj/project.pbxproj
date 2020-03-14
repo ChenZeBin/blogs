@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE3AADFC241684A5000A3372 /* KMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE3AADFA241684A5000A3372 /* KMP.cpp */; };
-		CEE7CCBA2400D1D5005249F4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE7CCB92400D1D5005249F4 /* main.cpp */; };
+		CECCC193241BAE2E0007380E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CECCC192241BAE2E0007380E /* main.cpp */; };
+		CECCC19B241BAE3F0007380E /* LRUCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CECCC199241BAE3F0007380E /* LRUCache.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CEE7CCB42400D1D5005249F4 /* CopyFiles */ = {
+		CECCC18D241BAE2E0007380E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,13 +24,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CE3AADFA241684A5000A3372 /* KMP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KMP.cpp; sourceTree = "<group>"; };
-		CEE7CCB62400D1D5005249F4 /* c++demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "c++demo"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEE7CCB92400D1D5005249F4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CECCC18F241BAE2E0007380E /* LRU */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LRU; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECCC192241BAE2E0007380E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CECCC199241BAE3F0007380E /* LRUCache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LRUCache.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CEE7CCB32400D1D5005249F4 /* Frameworks */ = {
+		CECCC18C241BAE2E0007380E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,66 +40,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CEE7CCAD2400D1D5005249F4 = {
+		CECCC186241BAE2E0007380E = {
 			isa = PBXGroup;
 			children = (
-				CEE7CCB82400D1D5005249F4 /* c++demo */,
-				CEE7CCB72400D1D5005249F4 /* Products */,
+				CECCC191241BAE2E0007380E /* LRU */,
+				CECCC190241BAE2E0007380E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CEE7CCB72400D1D5005249F4 /* Products */ = {
+		CECCC190241BAE2E0007380E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEE7CCB62400D1D5005249F4 /* c++demo */,
+				CECCC18F241BAE2E0007380E /* LRU */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CEE7CCB82400D1D5005249F4 /* c++demo */ = {
+		CECCC191241BAE2E0007380E /* LRU */ = {
 			isa = PBXGroup;
 			children = (
-				CEE7CCB92400D1D5005249F4 /* main.cpp */,
-				CE3AADFA241684A5000A3372 /* KMP.cpp */,
+				CECCC192241BAE2E0007380E /* main.cpp */,
+				CECCC199241BAE3F0007380E /* LRUCache.cpp */,
 			);
-			path = "c++demo";
+			path = LRU;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEE7CCB52400D1D5005249F4 /* c++demo */ = {
+		CECCC18E241BAE2E0007380E /* LRU */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEE7CCBD2400D1D5005249F4 /* Build configuration list for PBXNativeTarget "c++demo" */;
+			buildConfigurationList = CECCC196241BAE2E0007380E /* Build configuration list for PBXNativeTarget "LRU" */;
 			buildPhases = (
-				CEE7CCB22400D1D5005249F4 /* Sources */,
-				CEE7CCB32400D1D5005249F4 /* Frameworks */,
-				CEE7CCB42400D1D5005249F4 /* CopyFiles */,
+				CECCC18B241BAE2E0007380E /* Sources */,
+				CECCC18C241BAE2E0007380E /* Frameworks */,
+				CECCC18D241BAE2E0007380E /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "c++demo";
-			productName = "c++demo";
-			productReference = CEE7CCB62400D1D5005249F4 /* c++demo */;
+			name = LRU;
+			productName = LRU;
+			productReference = CECCC18F241BAE2E0007380E /* LRU */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CEE7CCAE2400D1D5005249F4 /* Project object */ = {
+		CECCC187241BAE2E0007380E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = chenzebin;
 				TargetAttributes = {
-					CEE7CCB52400D1D5005249F4 = {
+					CECCC18E241BAE2E0007380E = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = CEE7CCB12400D1D5005249F4 /* Build configuration list for PBXProject "c++demo" */;
+			buildConfigurationList = CECCC18A241BAE2E0007380E /* Build configuration list for PBXProject "LRU" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,30 +107,30 @@
 				en,
 				Base,
 			);
-			mainGroup = CEE7CCAD2400D1D5005249F4;
-			productRefGroup = CEE7CCB72400D1D5005249F4 /* Products */;
+			mainGroup = CECCC186241BAE2E0007380E;
+			productRefGroup = CECCC190241BAE2E0007380E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEE7CCB52400D1D5005249F4 /* c++demo */,
+				CECCC18E241BAE2E0007380E /* LRU */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CEE7CCB22400D1D5005249F4 /* Sources */ = {
+		CECCC18B241BAE2E0007380E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3AADFC241684A5000A3372 /* KMP.cpp in Sources */,
-				CEE7CCBA2400D1D5005249F4 /* main.cpp in Sources */,
+				CECCC19B241BAE3F0007380E /* LRUCache.cpp in Sources */,
+				CECCC193241BAE2E0007380E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		CEE7CCBB2400D1D5005249F4 /* Debug */ = {
+		CECCC194241BAE2E0007380E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		CEE7CCBC2400D1D5005249F4 /* Release */ = {
+		CECCC195241BAE2E0007380E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +239,7 @@
 			};
 			name = Release;
 		};
-		CEE7CCBE2400D1D5005249F4 /* Debug */ = {
+		CECCC197241BAE2E0007380E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -247,7 +247,7 @@
 			};
 			name = Debug;
 		};
-		CEE7CCBF2400D1D5005249F4 /* Release */ = {
+		CECCC198241BAE2E0007380E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -258,25 +258,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CEE7CCB12400D1D5005249F4 /* Build configuration list for PBXProject "c++demo" */ = {
+		CECCC18A241BAE2E0007380E /* Build configuration list for PBXProject "LRU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEE7CCBB2400D1D5005249F4 /* Debug */,
-				CEE7CCBC2400D1D5005249F4 /* Release */,
+				CECCC194241BAE2E0007380E /* Debug */,
+				CECCC195241BAE2E0007380E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEE7CCBD2400D1D5005249F4 /* Build configuration list for PBXNativeTarget "c++demo" */ = {
+		CECCC196241BAE2E0007380E /* Build configuration list for PBXNativeTarget "LRU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEE7CCBE2400D1D5005249F4 /* Debug */,
-				CEE7CCBF2400D1D5005249F4 /* Release */,
+				CECCC197241BAE2E0007380E /* Debug */,
+				CECCC198241BAE2E0007380E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CEE7CCAE2400D1D5005249F4 /* Project object */;
+	rootObject = CECCC187241BAE2E0007380E /* Project object */;
 }
