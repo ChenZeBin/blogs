@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F89E4F36-799C-4A00-A1F9-D590C3F50556"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "04800B50-C0F6-493D-939B-362783D39907"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FCAA173-1C83-479F-B463-511CF3CF6B00"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HookScrollerDelegate/ScrollerViewDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-respondsToSelector:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8909E85-4288-48EA-ADB3-6D6743476DD0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HookScrollerDelegate/ScrollerViewDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-methodSignatureForSelector:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A8909E85-4288-48EA-ADB3-6D6743476DD0 - 147c71d16dfcb732"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ScrollerViewDelegate methodSignatureForSelector:]"
+                  moduleName = "HookScrollerDelegate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/blogs/%E6%88%AA%E5%8F%96ScrollerView%E7%9A%84%E6%89%80%E6%9C%89%E4%BB%A3%E7%90%86/HookScrollerDelegate/HookScrollerDelegate/ScrollerViewDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "A8909E85-4288-48EA-ADB3-6D6743476DD0 - 290a14b4cff413f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__51-[ScrollerViewDelegate methodSignatureForSelector:]_block_invoke"
+                  moduleName = "HookScrollerDelegate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/blogs/%E6%88%AA%E5%8F%96ScrollerView%E7%9A%84%E6%89%80%E6%9C%89%E4%BB%A3%E7%90%86/HookScrollerDelegate/HookScrollerDelegate/ScrollerViewDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "A8909E85-4288-48EA-ADB3-6D6743476DD0 - 538749625811d35b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_e8_32r"
+                  moduleName = "HookScrollerDelegate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Desktop/blogs/%E6%88%AA%E5%8F%96ScrollerView%E7%9A%84%E6%89%80%E6%9C%89%E4%BB%A3%E7%90%86/HookScrollerDelegate/HookScrollerDelegate/ScrollerViewDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A0E4EF0-0233-47E6-9ED9-7CB6F4D621FC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HookScrollerDelegate/ScrollerViewDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-forwardInvocation:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

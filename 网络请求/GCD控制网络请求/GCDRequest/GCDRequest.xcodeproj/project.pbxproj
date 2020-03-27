@@ -16,7 +16,21 @@
 		CEB187F223F7CDCA00F2BE74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB187F123F7CDCA00F2BE74 /* main.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CE79747A241007520010F5DB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CE79746D241007520010F5DB /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		CEB187DC23F7CDC800F2BE74 /* GCDRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB187DF23F7CDC800F2BE74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEB187E023F7CDC800F2BE74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,10 +56,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE79746C241007520010F5DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE79746D241007520010F5DB /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEB187D323F7CDC800F2BE74 = {
 			isa = PBXGroup;
 			children = (
 				CEB187DE23F7CDC800F2BE74 /* GCDRequest */,
+				CE79746C241007520010F5DB /* Frameworks */,
 				CEB187DD23F7CDC800F2BE74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +109,7 @@
 				CEB187D823F7CDC800F2BE74 /* Sources */,
 				CEB187D923F7CDC800F2BE74 /* Frameworks */,
 				CEB187DA23F7CDC800F2BE74 /* Resources */,
+				CE79747A241007520010F5DB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);

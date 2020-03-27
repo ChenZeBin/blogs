@@ -7,6 +7,65 @@
 //
 
 #import "ViewController.h"
+#import <objc/runtime.h>
+
+@interface Person: NSObject
+@end
+@implementation Person
++ (void)printStatic{
+}
+- (void)print{
+    NSLog(@"This object is %p.", self);
+    NSLog(@"Class is %@, and super is %@.", [self class], [self superclass]);
+    const char *name = object_getClassName(self);
+    Class metaClass = objc_getMetaClass(name);
+    NSLog(@"MetaClass is %p----%@",metaClass,metaClass);
+    Class currentClass = [self class];
+    for (int i = 1; i < 5; i++)
+    {
+        NSLog(@"Following the isa pointer %d times gives %p----%@", i, currentClass,currentClass);
+            unsigned int countMethod = 0;
+        NSLog(@"---------------**%d start**-----------------------",i);
+        Method * methods = class_copyMethodList(currentClass, &countMethod);
+        [self printMethod:countMethod methods:methods ];
+        NSLog(@"---------------**%d end**-----------------------",i);
+        currentClass = object_getClass(currentClass);
+        NSLog(@"输出currentClass:%@",currentClass);
+        
+    }
+    NSLog(@"NSObject's class is %p", [NSObject class]);
+    NSLog(@"NSObject's meta class is %p", object_getClass([NSObject class]));
+}
+- (void)printMethod:(int)count methods:(Method *) methods{
+    for (int j = 0; j < count; j++) {
+        Method method = methods[j];
+        SEL methodSEL = method_getName(method);
+        const char * selName = sel_getName(methodSEL);
+        if (methodSEL) {
+            NSLog(@"sel------%s", selName);
+        }
+    }
+}
+@end
+@interface Animal: NSObject
+@end
+@implementation Animal
+- (void)print{
+    NSLog(@"This object is %p.", self);
+    NSLog(@"Class is %@, and super is %@.", [self class], [self superclass]);
+    const char *name = object_getClassName(self);
+    Class metaClass = objc_getMetaClass(name);
+    NSLog(@"MetaClass is %p",metaClass);
+    Class currentClass = [self class];
+    for (int i = 1; i < 5; i++)
+    {
+        NSLog(@"Following the isa pointer %d times gives %p", i, currentClass);
+        currentClass = object_getClass(currentClass);
+    }
+    NSLog(@"NSObject's class is %p", [NSObject class]);
+    NSLog(@"NSObject's meta class is %p", object_getClass([NSObject class]));
+}
+@end
 
 @interface ViewController ()
 
@@ -118,3 +177,28 @@
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
