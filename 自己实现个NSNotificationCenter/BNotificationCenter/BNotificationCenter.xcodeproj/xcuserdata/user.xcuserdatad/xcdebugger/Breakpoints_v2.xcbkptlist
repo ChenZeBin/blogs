@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "-addObserver:selector:name:object:"
+            landmarkName = "-postNotificationName:object:userInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "-postNotificationName:object:userInfo:"
+            landmarkName = "-postNotificationName:userInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

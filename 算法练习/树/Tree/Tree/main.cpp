@@ -29,6 +29,16 @@ private:
 
 public:
     
+    // 递归
+    void preorderTraverse(Node *root, vector<Node *> & vec) {
+        if (root == nullptr) return;
+        
+        vec.push_back(root);
+        preorderTraverse(root->left, vec);
+        preorderTraverse(root->right, vec);
+    }
+    
+    
     vector<double> averageOfLevels(Node* root) {
 
         if (root == nullptr) return {};
@@ -324,8 +334,7 @@ int main(int argc, const char * argv[]) {
     Tree tree;
     
     // 建立二叉树
-//    vector<int> vec = {2,3,4,5,'#',6,9,'#',11};
-    vector<int> vec = {3,2,3};
+    vector<int> vec = {2,3,4,5,'#',6,9,'#',11};
     tree.majorityElement(vec);
     
     Node *root = tree.initTree(vec);
@@ -354,6 +363,16 @@ int main(int argc, const char * argv[]) {
     }
     
     tree.averageOfLevels(root);
+    
+    // 递归
+    
+    // 前序遍历
+    vector<Node *> preorderTraverseVec;
+    tree.preorderTraverse(root,preorderTraverseVec);
+    cout<<"递归前序遍历"<<endl;
+    for (Node *n : preorderTraverseVec) {
+        cout<<n->val<<endl;
+    }
         
     return 0;
 }

@@ -8,6 +8,20 @@
 
 #import "ViewController.h"
 
+@interface teststr : NSObject
+
+
+@end
+
+@implementation teststr
+
+- (void)dealloc
+{
+    
+}
+
+@end
+
 @interface ViewController ()
 
 @end
@@ -18,6 +32,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self performSelector:@selector(aaaa)];
+    
+    __weak teststr *str1;
+    @autoreleasepool {
+        NSArray *str = [[NSArray alloc] init];
+        str1 = str;
+    }
+    NSLog(@"%@", str1); // Console: (null)
     
 }
 
