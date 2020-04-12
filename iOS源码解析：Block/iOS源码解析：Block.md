@@ -596,7 +596,116 @@ __weak id ptr = nil;
 
 **block捕获__block的变量会怎么样呢？**
 
-其实我们想下原理，__block
+`clang`下捕获__block变量的代码
+
+我们思考一下，加了`__block`修饰的局部变量，我们就可以在`block`中修改这个局部变量，那么这个是不是跟捕获静态局部变量的`block`类似呢？
+
+之所以可以在`block`中修改静态局部变量的值，是因为值传递到`block`的结构体中了
+
+***那么用`__block`会怎么样呢，来一探究竟吧！！！***
+
+```
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        
+        __block int temp = 10;
+        
+        void (^block)(void) = ^{
+            temp++;
+            NSLog(@"%d", temp);
+        };
+        
+        block();        
+        return 0;
+        
+    }
+    return 0;
+}
+
+
+```
+
+`clang`后的代码：
+
+```
+__attribute__((__blocks__(byref))) __Block_byref_temp_0 temp = {(void*)0,(__Block_byref_temp_0 *)&temp, 0, sizeof(__Block_byref_temp_0), 10};
+
+void (*block)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_func_0, &__main_block_desc_0_DATA, (__Block_byref_temp_0 *)&temp, 570425344));
+
+((void (*)(__block_impl *))((__block_impl *)block)->FuncPtr)((__block_impl *)block);
+
+```
+还记得刚才我们捕获局部变量的block吗？
+
+捕获局部变量的block，这个局部变量是放在`__main_block_impl_0`结构体中的，但是当加上`__block`修饰后，这个局部变量的本质已经变成一个结构体`__Block_byref_temp_0`，这说明跟捕获静态局部变量是完全不一样的原理了
+
+```
+struct __Block_byref_temp_0 {
+  void *__isa;
+__Block_byref_temp_0 *__forwarding;  // 储存__block修饰的变量的地址
+ int __flags;
+ int __size;
+ int temp; // 储存__block修饰的变量的值
+};
+```
+
+`block`的结构体多了一个成员变量`__Block_byref_temp_0 *temp`用来储存`__block`修饰的变量
+
+```
+struct __main_block_impl_0 {
+  struct __block_impl impl;
+  struct __main_block_desc_0* Desc;
+  __Block_byref_temp_0 *temp; // by ref
+  __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, __Block_byref_temp_0 *_temp, int flags=0) : temp(_temp->__forwarding) {
+    impl.isa = &_NSConcreteStackBlock;
+    impl.Flags = flags;
+    impl.FuncPtr = fp;
+    Desc = desc;
+  }
+};
+```
+
+从`block`函数实现`__main_block_func_0 `可以看出，修改局部变量`temp`的值，就是通过`block`的结构体指针`__cself `拿到
+`__block`修饰的局部变量`temp`的结构体指针`__Block_byref_temp_0 *temp = __cself->temp;`,通过这个结构体指针拿到`temp`的地址，再拿`temp`对应的值
+
+```
+static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
+  __Block_byref_temp_0 *temp = __cself->temp; // bound by ref
+
+            (temp->__forwarding->temp)++;
+            NSLog((NSString *)&__NSConstantStringImpl__var_folders_cy_nyx4t0n94m31zjvjp52g6hyw0000gn_T_main_410127_mi_0, (temp->__forwarding->temp));
+        }
+```
+
+***到这里，大家会不会觉得奇怪，为什么`__block`不要像静态布局变量那样，值传递就可以了，而是要搞成一个结构体呢?***
+
+```
+
+__block int aa = 10;
+        
+void(^block1)(void) = ^{
+    aa = 20;
+    
+    NSLog(@"%d",aa);
+};
+    
+void(^block2)(void) = ^{
+    aa = 30;
+    
+    NSLog(@"%d",aa);
+};
+    
+block1();
+block2();
+
+输出
+20
+
+30
+```
+
+
+
 
 
 
