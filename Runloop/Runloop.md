@@ -61,7 +61,7 @@ CFRunLoopRef CFRunLoopGetCurrent(void) {
 }
 ```
 
-从这两个方法，获取`Runloop`的入参是线程对象，可以判定，一一对应的关系，具体，我们再看下`_CFRunLoopGet0`的实现
+从这两个方法，获取`Runloop`的入参是线程对象，可以判定，线程与`runloop`一一对应的关系，具体，我们再看下`_CFRunLoopGet0`的实现
 
 ```
 CF_EXPORT CFRunLoopRef _CFRunLoopGet0(pthread_t t) {
@@ -170,7 +170,7 @@ typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
 
 所以，当启动`runloop`的时候，就是监听输入源（端口port、source0、source1）、定时器、如果有事件，处理事件，没有就休眠
 
-但是实际上并不是这样的，而是一直在重复的进入`runloop`
+但是实际上并不是这样的，而是一直在重复的进入`runloop`(使用run方法启动runloop的情况)
 
 我们先从开启`runloop`的函数入手,从`CFRunLoopRun `函数，我们看到了`runloop`确实是一个`do-while`操作，那么里面的`CFRunLoopRunSpecific`每走一次，就算`runloop`迭代一次，那么这个`runloop`迭代一次后，会退出`runloop`,退出`runloop`后，因为`CFRunLoopRun `函数有`do-while`操作，所以又会重新进入`runloop`
 
@@ -326,9 +326,6 @@ struct __CFRunLoopMode {
 
 
 4.子线程不自动开启`runloop`，手动开启`runloop`前，必须得有输入源和定时器（输入源就是通过监听端口，可以获取不同的事件），通过`CFRunloop`源码中的`CFRunLoopRunSpecific`函数，其中判断了当`mode`为`null`或者`modeItem`为空，直接`return`
-
-
-### `runloop`和线程一一对应的关系
 
 
 ## 监听Runloop的状态
@@ -605,9 +602,24 @@ if (NULL == currentMode || __CFRunLoopModeIsEmpty(rl, currentMode, rl->_currentM
 开启线程有三种方式
 
 ```
-- (void)run;  
-- (void)runUntilDate:(NSDate *)limitDate；
+// 不会退出runloop
+- (void)run; 
+
+// 超时时候到退出runloop
+- (void)runUntilDate:(NSDate *)limitDate； 
+
+// 处理完source会退出或者时间到也会退出
 - (void)runMode:(NSString *)mode beforeDate:(NSDate *)limitDate;
+
+// 上三个方法分别对应CFRunloop
+
+void CFRunLoopRun(void)
+
+SInt32 CFRunLoopRunInMode(CFStringRef modeName, CFTimeInterval seconds, Boolean returnAfterSourceHandled) //  returnAfterSourceHandled为NO
+
+SInt32 CFRunLoopRunInMode(CFStringRef modeName, CFTimeInterval seconds, Boolean returnAfterSourceHandled) //  returnAfterSourceHandled为YES
+
+
 
 ```
 
@@ -663,6 +675,7 @@ while (shouldKeepRunning) {
 
 
 顺便看看`performSelector:onThread:withObject:waitUntilDone:`
+
 ```
 // myThread是常驻线程
 self.myThread = [[PermanentThread alloc] initWithTarget:self selector:@selector(myThreadStart) object:nil];
