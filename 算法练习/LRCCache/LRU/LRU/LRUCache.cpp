@@ -32,6 +32,7 @@ private:
     int m_capacity;
     ListNode *pHead;
     ListNode *pTail;
+    // 缓存
     map<int, ListNode *> mp;
     
 public:
@@ -97,6 +98,7 @@ public:
         // 存在
         if (it != mp.end()) {
             
+            // 将缓存中的这个节点拿出来
             ListNode *node = it->second;
             // 这里不是真的移除这个节点，修改下这个节点的值，就可以利用这块内存了（应该叫更新）
             remove(node);
@@ -130,6 +132,7 @@ public:
     int get(int key) {
         map<int, ListNode *>::iterator it = mp.find(key);
         
+        // 缓存中有直接拿缓存的值，如果没有直接返回找不到
         if (it != mp.end()) {
             ListNode *node = it->second;
             // 这里不是真的移除这个节点，修改下这个节点的值，就可以利用这块内存了（应该叫更新）

@@ -206,6 +206,7 @@ public:
         return vec;
     }
     
+    
     vector<Node *> postorder(Node *root) {
         stack<pair<Node *, bool>> sk;
         sk.push(make_pair(root, false));
