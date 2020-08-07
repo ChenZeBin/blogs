@@ -19,5 +19,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)test
+{
+    NSLog(@"123");
+    NSLog(@"321");
+}
 
 @end
