@@ -21,11 +21,8 @@
 
 - (void)test
 {
-    if (1)
-    {
-        NSLog(@"123");
-        NSLog(@"321");
-    }
+    NSLog(@"123");
+    NSLog(@"321");
     
 }
 
