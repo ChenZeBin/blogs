@@ -1,0 +1,44 @@
+iPhone尺寸表
+
+
+
+设备 屏幕尺寸 逻辑分辨率(pt) Reader 分辨率(px） PPI 渲染分辨率
+
+iPhone 3GS 3.5 320x480 @1x 320x480 163
+
+iPhone 4/4s 3.5 320x480 @2x 640×960 330
+
+iPhone 5/5s/5c 4.0 320x568 @2x 640×1136 326
+
+iPhone SE 4.0 320×568 @2x 640×1136 326
+
+iPhone 6 4.7 375x667 @2x 750×1334 326
+
+iPhone 6s 4.7 375x667 @2x 750×1334 326
+
+iPhone 7 4.7 375x667 @2x 750×1334 326
+
+iPhone 8 4.7 375×667 @2x 750×1334 326
+
+iPhone 6Plus 5.5 414x736 @3x 1242x2208 401 1080x1920
+
+iPhone 6sPlus 5.5 414x736 @3x 1242x2208 401 1080x1920
+
+iPhone 7Plus 5.5 414x736 @3x 1242x2208 401 1080x1920
+
+iPhone 8 Plus 5.5 414×736 @3x 1242x2208 401 1080x1920
+
+iPhone XR 6.1 414x896 @2x 828x1792 326
+
+iPhone X 5.8 375x812 @3x 1125x2436 458
+
+iPhone Xs 5.8 375x812 @3x 1125x2436 458
+
+iPhone XMax 6.5 736x1344 @3x 1242x2688 458
+
+iPhone 11 414x896
+
+iPhone 11Pro 375x812
+
+iPhone 11ProMax 414x896
+
