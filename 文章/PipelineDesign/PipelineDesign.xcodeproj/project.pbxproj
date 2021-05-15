@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B278C76264EE37500CA26FE /* ShareDocLinkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B278C75264EE37500CA26FE /* ShareDocLinkModule.m */; };
+		2B278C7C264EE5E100CA26FE /* CheckLoginPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B278C7B264EE5E100CA26FE /* CheckLoginPipeline.m */; };
+		2B278C80264EE5FF00CA26FE /* CheckDocAttributePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B278C7F264EE5FF00CA26FE /* CheckDocAttributePipeline.m */; };
+		2B278C84264EE60900CA26FE /* CheckUserAttributePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B278C83264EE60900CA26FE /* CheckUserAttributePipeline.m */; };
+		2B278C88264EE61300CA26FE /* RequestDocLinkPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B278C87264EE61300CA26FE /* RequestDocLinkPipeline.m */; };
+		2BD0CC0A264ED90200FFEC57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0CC09264ED90200FFEC57 /* AppDelegate.m */; };
+		2BD0CC0D264ED90200FFEC57 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0CC0C264ED90200FFEC57 /* SceneDelegate.m */; };
+		2BD0CC10264ED90200FFEC57 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0CC0F264ED90200FFEC57 /* ViewController.m */; };
+		2BD0CC13264ED90200FFEC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0CC11264ED90200FFEC57 /* Main.storyboard */; };
+		2BD0CC15264ED90200FFEC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0CC14264ED90200FFEC57 /* Assets.xcassets */; };
+		2BD0CC18264ED90200FFEC57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0CC16264ED90200FFEC57 /* LaunchScreen.storyboard */; };
+		2BD0CC1B264ED90200FFEC57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0CC1A264ED90200FFEC57 /* main.m */; };
+		2BD0CFA1264ED95500FFEC57 /* PipelinePlumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0CF9F264ED95500FFEC57 /* PipelinePlumber.m */; };
+		2BD0D32A264EDC1700FFEC57 /* ShareEventPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0D329264EDC1700FFEC57 /* ShareEventPort.m */; };
+		2BD0D32F264EDC3E00FFEC57 /* Packet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0D32E264EDC3E00FFEC57 /* Packet.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B278C74264EE37500CA26FE /* ShareDocLinkModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareDocLinkModule.h; sourceTree = "<group>"; };
+		2B278C75264EE37500CA26FE /* ShareDocLinkModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareDocLinkModule.m; sourceTree = "<group>"; };
+		2B278C7A264EE5E100CA26FE /* CheckLoginPipeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckLoginPipeline.h; sourceTree = "<group>"; };
+		2B278C7B264EE5E100CA26FE /* CheckLoginPipeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckLoginPipeline.m; sourceTree = "<group>"; };
+		2B278C7E264EE5FF00CA26FE /* CheckDocAttributePipeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckDocAttributePipeline.h; sourceTree = "<group>"; };
+		2B278C7F264EE5FF00CA26FE /* CheckDocAttributePipeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckDocAttributePipeline.m; sourceTree = "<group>"; };
+		2B278C82264EE60900CA26FE /* CheckUserAttributePipeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckUserAttributePipeline.h; sourceTree = "<group>"; };
+		2B278C83264EE60900CA26FE /* CheckUserAttributePipeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckUserAttributePipeline.m; sourceTree = "<group>"; };
+		2B278C86264EE61300CA26FE /* RequestDocLinkPipeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestDocLinkPipeline.h; sourceTree = "<group>"; };
+		2B278C87264EE61300CA26FE /* RequestDocLinkPipeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestDocLinkPipeline.m; sourceTree = "<group>"; };
+		2BD0CC05264ED90200FFEC57 /* PipelineDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PipelineDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BD0CC08264ED90200FFEC57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2BD0CC09264ED90200FFEC57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2BD0CC0B264ED90200FFEC57 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		2BD0CC0C264ED90200FFEC57 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		2BD0CC0E264ED90200FFEC57 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2BD0CC0F264ED90200FFEC57 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2BD0CC12264ED90200FFEC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BD0CC14264ED90200FFEC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BD0CC17264ED90200FFEC57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2BD0CC19264ED90200FFEC57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BD0CC1A264ED90200FFEC57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2BD0CF9F264ED95500FFEC57 /* PipelinePlumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PipelinePlumber.m; sourceTree = "<group>"; };
+		2BD0CFA0264ED95500FFEC57 /* PipelinePlumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipelinePlumber.h; sourceTree = "<group>"; };
+		2BD0D323264EDA9F00FFEC57 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
+		2BD0D326264EDAD000FFEC57 /* RACmetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACmetamacros.h; sourceTree = "<group>"; };
+		2BD0D328264EDC1700FFEC57 /* ShareEventPort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareEventPort.h; sourceTree = "<group>"; };
+		2BD0D329264EDC1700FFEC57 /* ShareEventPort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareEventPort.m; sourceTree = "<group>"; };
+		2BD0D32D264EDC3E00FFEC57 /* Packet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
+		2BD0D32E264EDC3E00FFEC57 /* Packet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Packet.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2BD0CC02264ED90200FFEC57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2BD0CBFC264ED90200FFEC57 = {
+			isa = PBXGroup;
+			children = (
+				2BD0CC07264ED90200FFEC57 /* PipelineDesign */,
+				2BD0CC06264ED90200FFEC57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2BD0CC06264ED90200FFEC57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2BD0CC05264ED90200FFEC57 /* PipelineDesign.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2BD0CC07264ED90200FFEC57 /* PipelineDesign */ = {
+			isa = PBXGroup;
+			children = (
+				2BD0D32C264EDC2500FFEC57 /* ShareDocLinkModule */,
+				2BD0CC08264ED90200FFEC57 /* AppDelegate.h */,
+				2BD0CC09264ED90200FFEC57 /* AppDelegate.m */,
+				2BD0CC0B264ED90200FFEC57 /* SceneDelegate.h */,
+				2BD0CC0C264ED90200FFEC57 /* SceneDelegate.m */,
+				2BD0CC0E264ED90200FFEC57 /* ViewController.h */,
+				2BD0CC0F264ED90200FFEC57 /* ViewController.m */,
+				2BD0CFA0264ED95500FFEC57 /* PipelinePlumber.h */,
+				2BD0CF9F264ED95500FFEC57 /* PipelinePlumber.m */,
+				2BD0CC11264ED90200FFEC57 /* Main.storyboard */,
+				2BD0CC14264ED90200FFEC57 /* Assets.xcassets */,
+				2BD0CC16264ED90200FFEC57 /* LaunchScreen.storyboard */,
+				2BD0CC19264ED90200FFEC57 /* Info.plist */,
+				2BD0CC1A264ED90200FFEC57 /* main.m */,
+				2BD0D326264EDAD000FFEC57 /* RACmetamacros.h */,
+				2BD0D323264EDA9F00FFEC57 /* RACEXTScope.h */,
+			);
+			path = PipelineDesign;
+			sourceTree = "<group>";
+		};
+		2BD0D32C264EDC2500FFEC57 /* ShareDocLinkModule */ = {
+			isa = PBXGroup;
+			children = (
+				2B278C74264EE37500CA26FE /* ShareDocLinkModule.h */,
+				2B278C75264EE37500CA26FE /* ShareDocLinkModule.m */,
+				2BD0D33A264EDD4100FFEC57 /* Packet */,
+				2BD0D33C264EDD5900FFEC57 /* Port */,
+				2BD0D33B264EDD4D00FFEC57 /* Pipeline */,
+			);
+			path = ShareDocLinkModule;
+			sourceTree = "<group>";
+		};
+		2BD0D33A264EDD4100FFEC57 /* Packet */ = {
+			isa = PBXGroup;
+			children = (
+				2BD0D32D264EDC3E00FFEC57 /* Packet.h */,
+				2BD0D32E264EDC3E00FFEC57 /* Packet.m */,
+			);
+			path = Packet;
+			sourceTree = "<group>";
+		};
+		2BD0D33B264EDD4D00FFEC57 /* Pipeline */ = {
+			isa = PBXGroup;
+			children = (
+				2B278C7A264EE5E100CA26FE /* CheckLoginPipeline.h */,
+				2B278C7B264EE5E100CA26FE /* CheckLoginPipeline.m */,
+				2B278C7E264EE5FF00CA26FE /* CheckDocAttributePipeline.h */,
+				2B278C7F264EE5FF00CA26FE /* CheckDocAttributePipeline.m */,
+				2B278C82264EE60900CA26FE /* CheckUserAttributePipeline.h */,
+				2B278C83264EE60900CA26FE /* CheckUserAttributePipeline.m */,
+				2B278C86264EE61300CA26FE /* RequestDocLinkPipeline.h */,
+				2B278C87264EE61300CA26FE /* RequestDocLinkPipeline.m */,
+			);
+			path = Pipeline;
+			sourceTree = "<group>";
+		};
+		2BD0D33C264EDD5900FFEC57 /* Port */ = {
+			isa = PBXGroup;
+			children = (
+				2BD0D328264EDC1700FFEC57 /* ShareEventPort.h */,
+				2BD0D329264EDC1700FFEC57 /* ShareEventPort.m */,
+			);
+			path = Port;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2BD0CC04264ED90200FFEC57 /* PipelineDesign */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BD0CC1E264ED90200FFEC57 /* Build configuration list for PBXNativeTarget "PipelineDesign" */;
+			buildPhases = (
+				2BD0CC01264ED90200FFEC57 /* Sources */,
+				2BD0CC02264ED90200FFEC57 /* Frameworks */,
+				2BD0CC03264ED90200FFEC57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PipelineDesign;
+			productName = PipelineDesign;
+			productReference = 2BD0CC05264ED90200FFEC57 /* PipelineDesign.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2BD0CBFD264ED90200FFEC57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					2BD0CC04264ED90200FFEC57 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 2BD0CC00264ED90200FFEC57 /* Build configuration list for PBXProject "PipelineDesign" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2BD0CBFC264ED90200FFEC57;
+			productRefGroup = 2BD0CC06264ED90200FFEC57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2BD0CC04264ED90200FFEC57 /* PipelineDesign */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2BD0CC03264ED90200FFEC57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BD0CC18264ED90200FFEC57 /* LaunchScreen.storyboard in Resources */,
+				2BD0CC15264ED90200FFEC57 /* Assets.xcassets in Resources */,
+				2BD0CC13264ED90200FFEC57 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BD0CC01264ED90200FFEC57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BD0D32F264EDC3E00FFEC57 /* Packet.m in Sources */,
+				2BD0D32A264EDC1700FFEC57 /* ShareEventPort.m in Sources */,
+				2B278C88264EE61300CA26FE /* RequestDocLinkPipeline.m in Sources */,
+				2BD0CC10264ED90200FFEC57 /* ViewController.m in Sources */,
+				2BD0CFA1264ED95500FFEC57 /* PipelinePlumber.m in Sources */,
+				2BD0CC0A264ED90200FFEC57 /* AppDelegate.m in Sources */,
+				2B278C84264EE60900CA26FE /* CheckUserAttributePipeline.m in Sources */,
+				2BD0CC1B264ED90200FFEC57 /* main.m in Sources */,
+				2B278C76264EE37500CA26FE /* ShareDocLinkModule.m in Sources */,
+				2BD0CC0D264ED90200FFEC57 /* SceneDelegate.m in Sources */,
+				2B278C80264EE5FF00CA26FE /* CheckDocAttributePipeline.m in Sources */,
+				2B278C7C264EE5E100CA26FE /* CheckLoginPipeline.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2BD0CC11264ED90200FFEC57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BD0CC12264ED90200FFEC57 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2BD0CC16264ED90200FFEC57 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BD0CC17264ED90200FFEC57 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2BD0CC1C264ED90200FFEC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2BD0CC1D264ED90200FFEC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2BD0CC1F264ED90200FFEC57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KS2MXK543H;
+				INFOPLIST_FILE = PipelineDesign/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Chenzebin.PipelineDesign;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BD0CC20264ED90200FFEC57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KS2MXK543H;
+				INFOPLIST_FILE = PipelineDesign/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Chenzebin.PipelineDesign;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BD0CC00264ED90200FFEC57 /* Build configuration list for PBXProject "PipelineDesign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BD0CC1C264ED90200FFEC57 /* Debug */,
+				2BD0CC1D264ED90200FFEC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BD0CC1E264ED90200FFEC57 /* Build configuration list for PBXNativeTarget "PipelineDesign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BD0CC1F264ED90200FFEC57 /* Debug */,
+				2BD0CC20264ED90200FFEC57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2BD0CBFD264ED90200FFEC57 /* Project object */;
+}
