@@ -238,7 +238,7 @@ Pipeline对象会有一个plumber_nextPipeline属性，用于指向下一个Pipe
 当Port类中调用`self.throwPacketBlock(packet, 100);`，会触发`handlePacket `方法，然后调用`recurPipeline `方法进行递归，实现packet从Port->APipe->BPipe->throwPacketBlock.
 
 # Demo地址
-
+https://github.com/ChenZeBin/blogs/tree/master/%E6%96%87%E7%AB%A0/PipelineDesign
 
 
 
