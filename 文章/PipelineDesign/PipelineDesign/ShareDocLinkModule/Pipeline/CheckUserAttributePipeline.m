@@ -2,7 +2,7 @@
 //  CheckUserAttributePipeline.m
 //  PipelineDesign
 //
-//  Created by bytedance on 2021/5/15.
+//  Created by ChenZeBin on 2021/5/15.
 //
 
 #import "CheckUserAttributePipeline.h"
