@@ -3,7 +3,7 @@
 该文介绍Pipeline设计模式，使用场景，以及如何使用OC语言，用链式语法优雅的将Pipeline串联起来。
 
 # Pipeline设计
-![](https://github.com/ChenZeBin/MyPicture/blob/master/Pipeline%E8%AE%BE%E8%AE%A1.png?raw=true)
+![](https://gitee.com/czbCorbin/Pic/raw/master/Pipeline%E8%AE%BE%E8%AE%A1.png)
 思想来源于责任链模式，如上图所示，有三个概念：
 
 - Port是产生数据对象；
@@ -13,7 +13,7 @@
 链路比较长的业务场景，大都可以套入这个模式；例如，
 
 开播：
-![](https://github.com/ChenZeBin/MyPicture/blob/master/%E5%BC%80%E6%92%AD%E9%93%BE%E8%B7%AF.png?raw=true)
+![](https://gitee.com/czbCorbin/Pic/raw/master/%E5%BC%80%E6%92%AD%E9%93%BE%E8%B7%AF.png)
 
 1. 用户点击开播按钮产生一个点击事件，那么这个事件可以作为一个Port，用于产生点击事件
 2. Port产生数据后，会流向Pipeline，假如开播需要先检查该用户是否具备开播资格，那么检查具备开播资格的业务代码可以作为一个Pipeline
@@ -41,7 +41,7 @@
 
 最后，使用PipelinePlumber(水管工)将Port和Pipeline串联起来，在最末端的throwPacketBlock接收数据。
 
-```
+```objectivec
 - (void)setupPipeline
 {
     // pipeline
@@ -67,12 +67,11 @@
 ```
 
 # 链式串联Pipeline工具介绍[PipelinePlumber]
-![](https://github.com/ChenZeBin/MyPicture/blob/master/Pipeline%E8%AE%BE%E8%AE%A1.png?raw=true)
 在整套设计模式中，有三个非常重要的概念，分别是Port、Pipeline、Packet；我将他们抽象成三个协议。
 
 ## 抽象Packet特征
 ### 介绍
-```
+```objectivec
 /// 数据协议
 @protocol BasePacketProtocol <NSObject>
 
@@ -88,7 +87,7 @@ Packet(数据包)肯定是由Port产生的，对于所有端口而言，具备�
 
 ### 使用
 
-```
+```objectivec
 @protocol Packet <BasePacketProtocol>
 
 @property (nonatomic, strong) NSDictionary *metaData;
@@ -105,7 +104,7 @@ Packet(数据包)肯定是由Port产生的，对于所有端口而言，具备�
 
 
 ## 抽象Port特征
-```
+```objectivec
 /// 端口协议
 @protocol PortDelegate <NSObject>
 
@@ -113,7 +112,7 @@ Packet(数据包)肯定是由Port产生的，对于所有端口而言，具备�
 
 @end
 ```
-```
+```objectivec
 - (void)receiveShareEvent:(NSDictionary *)dic
 {
     Packet *packet = [Packet new];
@@ -130,14 +129,14 @@ Packet(数据包)肯定是由Port产生的，对于所有端口而言，具备�
 对于端口，这里只抽象出了抛数据的接口`throwPacketBlock `，当端口产生数据时，调用`throwPacketBlock `，填入两个参数，分别是`Packet`和端口号，即可往`Pipeline`传递数据了。
 
 ## 抽象Pipeline特征
-```
+```objectivec
 @protocol PipelineDelegate <NSObject>
 
 - (void)receivePacket:(id)packet throwPacketBlock:(void(^)(id packet))block;
 
 @end
 ```
-```
+```objectivec
 // 使用示例代码
 
 #define PassNextPipeline(packet) !block ? : block(packet)
@@ -161,7 +160,7 @@ Packet(数据包)肯定是由Port产生的，对于所有端口而言，具备�
 ## 核心角色：PipelinePlumber 
 PipelinePlumber是一个水管工，负责将Port和Pipeline串联起来，让数据可以流通。
 ### 接口
-```
+```objectivec
 /// pipeline的水管工
 @interface PipelinePlumber : NSObject
 
@@ -177,7 +176,7 @@ PipelinePlumber是一个水管工，负责将Port和Pipeline串联起来，让�
 @end
 ```
 ### 实现
-```
+```objectivec
 @property (nonatomic, strong) NSMutableArray<id<PortDelegate>> *portArr;
 @property (nonatomic, strong) NSMutableArray<id<PipelineDelegate>> *pipelineArr;
 ```
@@ -185,7 +184,7 @@ PipelinePlumber是一个水管工，负责将Port和Pipeline串联起来，让�
 
 #### 为啥在Port中调用`self.throwPacketBlock(packet, 100);`就可往`Pipeline`传输数据？
 
-```
+```objectivec
     @weakify(self);
     [self.portArr enumerateObjectsUsingBlock:^(id<PortDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
@@ -199,7 +198,7 @@ PipelinePlumber是一个水管工，负责将Port和Pipeline串联起来，让�
 监听了每个Port对象的`throwPacketBlock`，所以当在Port类中，调用`self.throwPacketBlock(packet, 100);`时，`PipelinePlumber `内就可监听到，并且处理`Packet`流向`Pipeline`。
 
 #### `- (void)receivePacket:(id<Packet>)packet throwPacketBlock:(void(^)(id packet))block`实现中，调用block就可以将packet传向下一个Pipeline是如何实现的？
-```
+```objectivec
 @interface NSObject(PipelinePlumber)
 
 @property (nonatomic, strong) id<PipelineDelegate> plumber_nextPipeline;
@@ -209,7 +208,7 @@ PipelinePlumber是一个水管工，负责将Port和Pipeline串联起来，让�
 
 Pipeline对象会有一个plumber_nextPipeline属性，用于指向下一个Pipeline；在数据结构上，Pipeline是用单链表串联起来的，所以可以通过plumber_nextPipeline指针，从APipe->BPipe。
 
-```
+```objectivec
 - (void)handlePacket:(id)packet
 {
     [self recurPipeline:self.pipelineArr.firstObject packet:packet];
