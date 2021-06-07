@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) NSOperationQueue *queue;
+
 @end
 
 @implementation ViewController
@@ -51,7 +53,7 @@
 //    [self test5];
     
     // 6.自定义队列
-//    [self test6];
+    [self test6];
 }
 
 #pragma mark - NSInvocationOperation 使用
@@ -119,6 +121,7 @@
     // 主队列
     NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
     
+    
 //    NSInvocationOperation *op1 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(task2:) object:@"1"];
 //    [mainQueue addOperation:op1];
 //
@@ -130,7 +133,7 @@
     
     for (NSInteger i = 0; i < 1000; i++) {
         NSInvocationOperation *op3 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(task2:) object:[@(i) stringValue]];
-           [mainQueue addOperation:op3];
+        [mainQueue addOperation:op3];
     }
     
     // cancelAllOperations取消不了主队列的任务
@@ -200,19 +203,34 @@
 - (void)test6
 {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 2;
+    self.queue = queue;
     
-    ConcurrentOperation *op1 = [[ConcurrentOperation alloc] init];
-    ConcurrentOperation *op2 = [[ConcurrentOperation alloc] init];
-    ConcurrentOperation *op3 = [[ConcurrentOperation alloc] init];
+    for (int i = 0; i < 10; i++) {
+        ConcurrentOperation *op1 = [[ConcurrentOperation alloc] init];
+        [queue addOperation:op1];
+        NSLog(@"队列:%ld",queue.operationCount);
+    }
+//    ConcurrentOperation *op1 = [[ConcurrentOperation alloc] init];
+//    ConcurrentOperation *op2 = [[ConcurrentOperation alloc] init];
+//    ConcurrentOperation *op3 = [[ConcurrentOperation alloc] init];
     
-    [queue addOperation:op1];
-    [op1 cancel];
-    [queue addOperation:op2];
-    [queue addOperation:op3];
+//    [queue addOperation:op1];
+//    [op1 cancel];
+//    [queue addOperation:op2];
+//    [queue addOperation:op3];
 //    [queue cancelAllOperations];
 //    [op start];
     
 //    [[NSOperationQueue mainQueue] addOperation:op];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    ConcurrentOperation *op1 = [[ConcurrentOperation alloc] init];
+    [self.queue addOperation:op1];
+    NSLog(@"队列:%ld",self.queue.operationCount);
 }
 
 @end
