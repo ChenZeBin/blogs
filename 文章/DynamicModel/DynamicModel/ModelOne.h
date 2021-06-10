@@ -5,11 +5,11 @@
 //  Created by bytedance on 2021/6/7.
 //
 
-#import "DynamicModel.h"
+#import "IESLiveDynamicModelDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ModelOne : DynamicModel
+@interface ModelOne : IESLiveDynamicModel
 
 @end
 

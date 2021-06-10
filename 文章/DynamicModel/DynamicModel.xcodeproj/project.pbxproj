@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BBD80F92670B87600E992E0 /* InheritModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD80F82670B87600E992E0 /* InheritModel.m */; };
+		2BBD84A32670CA3400E992E0 /* IESLiveDynamicModelDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD84A22670CA3400E992E0 /* IESLiveDynamicModelDefine.m */; };
+		2BBD84A92670CB2400E992E0 /* IESLiveDynamicModelUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD84A82670CB2400E992E0 /* IESLiveDynamicModelUtil.m */; };
+		2BBD884E2670D6CC00E992E0 /* ThreeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD884D2670D6CC00E992E0 /* ThreeModel.m */; };
 		2BF0FAB7266E49D700CB2743 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAB6266E49D700CB2743 /* AppDelegate.m */; };
 		2BF0FABA266E49D700CB2743 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAB9266E49D700CB2743 /* SceneDelegate.m */; };
 		2BF0FABD266E49D700CB2743 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FABC266E49D700CB2743 /* ViewController.m */; };
@@ -14,12 +18,19 @@
 		2BF0FAC2266E49DE00CB2743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF0FAC1266E49DE00CB2743 /* Assets.xcassets */; };
 		2BF0FAC5266E49DE00CB2743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF0FAC3266E49DE00CB2743 /* LaunchScreen.storyboard */; };
 		2BF0FAC8266E49DE00CB2743 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAC7266E49DE00CB2743 /* main.m */; };
-		2BF0FAD1266E4A3000CB2743 /* DynamicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAD0266E4A3000CB2743 /* DynamicModel.m */; };
 		2BF0FE7D266E4C9200CB2743 /* ModelOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FE7C266E4C9200CB2743 /* ModelOne.m */; };
 		2BF0FE81266E4C9C00CB2743 /* ModelTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FE80266E4C9C00CB2743 /* ModelTwo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BBD80F72670B87600E992E0 /* InheritModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InheritModel.h; sourceTree = "<group>"; };
+		2BBD80F82670B87600E992E0 /* InheritModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InheritModel.m; sourceTree = "<group>"; };
+		2BBD84A12670CA3400E992E0 /* IESLiveDynamicModelDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicModelDefine.h; sourceTree = "<group>"; };
+		2BBD84A22670CA3400E992E0 /* IESLiveDynamicModelDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IESLiveDynamicModelDefine.m; sourceTree = "<group>"; };
+		2BBD84A72670CB2400E992E0 /* IESLiveDynamicModelUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicModelUtil.h; sourceTree = "<group>"; };
+		2BBD84A82670CB2400E992E0 /* IESLiveDynamicModelUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IESLiveDynamicModelUtil.m; sourceTree = "<group>"; };
+		2BBD884C2670D6CC00E992E0 /* ThreeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeModel.h; sourceTree = "<group>"; };
+		2BBD884D2670D6CC00E992E0 /* ThreeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeModel.m; sourceTree = "<group>"; };
 		2BF0FAB2266E49D600CB2743 /* DynamicModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF0FAB5266E49D700CB2743 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BF0FAB6266E49D700CB2743 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,8 +43,6 @@
 		2BF0FAC4266E49DE00CB2743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BF0FAC6266E49DE00CB2743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BF0FAC7266E49DE00CB2743 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2BF0FACF266E4A3000CB2743 /* DynamicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicModel.h; sourceTree = "<group>"; };
-		2BF0FAD0266E4A3000CB2743 /* DynamicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicModel.m; sourceTree = "<group>"; };
 		2BF0FE7B266E4C9200CB2743 /* ModelOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelOne.h; sourceTree = "<group>"; };
 		2BF0FE7C266E4C9200CB2743 /* ModelOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelOne.m; sourceTree = "<group>"; };
 		2BF0FE7F266E4C9C00CB2743 /* ModelTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelTwo.h; sourceTree = "<group>"; };
@@ -81,12 +90,18 @@
 				2BF0FAC3266E49DE00CB2743 /* LaunchScreen.storyboard */,
 				2BF0FAC6266E49DE00CB2743 /* Info.plist */,
 				2BF0FAC7266E49DE00CB2743 /* main.m */,
-				2BF0FACF266E4A3000CB2743 /* DynamicModel.h */,
-				2BF0FAD0266E4A3000CB2743 /* DynamicModel.m */,
 				2BF0FE7B266E4C9200CB2743 /* ModelOne.h */,
 				2BF0FE7C266E4C9200CB2743 /* ModelOne.m */,
 				2BF0FE7F266E4C9C00CB2743 /* ModelTwo.h */,
 				2BF0FE80266E4C9C00CB2743 /* ModelTwo.m */,
+				2BBD84A72670CB2400E992E0 /* IESLiveDynamicModelUtil.h */,
+				2BBD84A82670CB2400E992E0 /* IESLiveDynamicModelUtil.m */,
+				2BBD84A12670CA3400E992E0 /* IESLiveDynamicModelDefine.h */,
+				2BBD84A22670CA3400E992E0 /* IESLiveDynamicModelDefine.m */,
+				2BBD80F72670B87600E992E0 /* InheritModel.h */,
+				2BBD80F82670B87600E992E0 /* InheritModel.m */,
+				2BBD884C2670D6CC00E992E0 /* ThreeModel.h */,
+				2BBD884D2670D6CC00E992E0 /* ThreeModel.m */,
 			);
 			path = DynamicModel;
 			sourceTree = "<group>";
@@ -160,13 +175,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BF0FAD1266E4A3000CB2743 /* DynamicModel.m in Sources */,
 				2BF0FABD266E49D700CB2743 /* ViewController.m in Sources */,
 				2BF0FE81266E4C9C00CB2743 /* ModelTwo.m in Sources */,
 				2BF0FAB7266E49D700CB2743 /* AppDelegate.m in Sources */,
 				2BF0FAC8266E49DE00CB2743 /* main.m in Sources */,
+				2BBD80F92670B87600E992E0 /* InheritModel.m in Sources */,
 				2BF0FE7D266E4C9200CB2743 /* ModelOne.m in Sources */,
+				2BBD884E2670D6CC00E992E0 /* ThreeModel.m in Sources */,
 				2BF0FABA266E49D700CB2743 /* SceneDelegate.m in Sources */,
+				2BBD84A32670CA3400E992E0 /* IESLiveDynamicModelDefine.m in Sources */,
+				2BBD84A92670CB2400E992E0 /* IESLiveDynamicModelUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

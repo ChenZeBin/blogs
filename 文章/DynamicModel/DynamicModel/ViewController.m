@@ -8,6 +8,8 @@
 #import "ViewController.h"
 #import "ModelOne.h"
 #import "ModelTwo.h"
+#import <objc/runtime.h>
+#import "InheritModel.h"
 
 @interface ViewController ()
 
@@ -21,6 +23,9 @@
     
     ModelTwo *two = [ModelTwo new];
     [two change];
+    
+    InheritModel3 *three = [InheritModel3 new];
+    
 }
 
 

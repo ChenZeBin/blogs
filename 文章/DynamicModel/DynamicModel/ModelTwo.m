@@ -6,9 +6,40 @@
 //
 
 #import "ModelTwo.h"
+#import <objc/runtime.h>
+
+NSArray<NSString *> *getPropertiesList11(Class cls)
+{
+    NSMutableArray *dicTemp = [NSMutableArray array];
+    // 遍历子类到父类的所有属性
+    unsigned int count;
+    objc_property_t *properties = class_copyPropertyList(cls, &count);
+    for (int i = 0; i < count; i++) {
+        objc_property_t property = properties[i];
+        const char *cName = property_getName(property);
+        NSString *key = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];;
+        [dicTemp addObject:key];
+    }
+    free(properties);
+    return [dicTemp copy];
+}
 
 @implementation ModelTwo
-@dynamic str,ary,mutableAry,number,isTrue,enumType,integerType,doubleType,TypesSInt32,typesSInt64,typesFloat32,typesFloat64,mutableDic,dic;
+@dynamic str,mutableAry,ary,mutableDic,dic,integerType,number,doubleType,isTrue,enumType,typesSInt64,TypesSInt32,typesFloat32,typesFloat64;
+
++ (void)load
+{
+    NSArray *arr = getPropertiesList11([self class]);
+    __block NSMutableString *string = [NSMutableString stringWithString:@"@dynamic "];
+    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [string appendString:[NSString stringWithFormat:@"%@,",obj]];
+    }];
+    [string replaceCharactersInRange:NSMakeRange(string.length-1, 1) withString:@";"];
+    
+    NSLog(@"czb__%@",string);
+}
+
+
 
 - (void)change
 {

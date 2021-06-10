@@ -5,7 +5,7 @@
 //  Created by bytedance on 2021/6/7.
 //
 
-#import "DynamicModel.h"
+#import "IESLiveDynamicModelDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, IDLForumApiForumStatus) {
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, IDLForumApiForumStatus) {
     IDLForumApiForumStatusDEIT = 3,
 };
 
-@interface ModelTwo : DynamicModel
+@interface ModelTwo : IESLiveDynamicModel
 
 @property(nonatomic,strong)NSString *str;
 @property(nonatomic,strong)NSMutableArray *mutableAry;

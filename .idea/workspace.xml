@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="626fcd7c-f4f5-456c-936a-fb55b2c3cce0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/IESLiveDynamicModelDefine.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/IESLiveDynamicModelDefine.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/IESLiveDynamicModelUtil.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/IESLiveDynamicModelUtil.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/InheritModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/InheritModel.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ModelThree.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ModelThree.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel.xcodeproj/project.xcworkspace/xcuserdata/bytedance.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel.xcodeproj/project.xcworkspace/xcuserdata/bytedance.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel.xcodeproj/xcuserdata/bytedance.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel.xcodeproj/xcuserdata/bytedance.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/DynamicModel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/DynamicModel.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ModelOne.h" beforeDir="false" afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ModelOne.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ModelTwo.h" beforeDir="false" afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ModelTwo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/文章/DynamicModel/DynamicModel/ViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/第三方源码学习/AFNetWorkingDemo/AFNetWorkingDemo.xcworkspace/xcuserdata/bytedance.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/第三方源码学习/AFNetWorkingDemo/AFNetWorkingDemo.xcworkspace/xcuserdata/bytedance.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="21f49499-cf4c-4f0f-b9b4-d5751c82dcce" />
+  <component name="ProjectId" id="1ti0O2imVsXekAf5zYwzpTlPqBa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="626fcd7c-f4f5-456c-936a-fb55b2c3cce0" name="Default Changelist" comment="" />
+      <created>1623236568727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623236568727</updated>
+      <workItem from="1623236570700" duration="11000" />
+    </task>
+    <servers />
+  </component>
+</project>
