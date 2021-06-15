@@ -70,7 +70,6 @@ void cacheBasicDataTypeIVar(id<IESLiveDynamicModel> mSelf,Class baseCls, SEL sel
     // 使用一个全局的map来存objc_setAssociatedObject的key(地址)
     [mSelf.DynamicModel_propertyNamePtrMap setObject:ivarName forKey:ivarName];
     objc_setAssociatedObject(mSelf,(__bridge const void * _Nonnull)(ivarName),value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    NSLog(@"czb__cache_name:%p,value:%@",(__bridge const void * _Nonnull)(ivarName),value);
 }
 
 /// 从缓存中获取基础数据类型的值
@@ -78,7 +77,6 @@ NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> mSelf, SEL selector
 {
     NSString *ivarName = mSelf.DynamicModel_propertyNamePtrMap[NSStringFromSelector(selector)];
     NSNumber *value = objc_getAssociatedObject(mSelf, (__bridge const void * _Nonnull)(ivarName));
-    NSLog(@"czb__get_name:%p,value:%@",(__bridge const void * _Nonnull)(ivarName),value);
     return value;
 }
 

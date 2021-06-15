@@ -1,0 +1,30 @@
+PODS:
+  - JSONModel (1.8.0)
+  - Mantle (2.1.6):
+    - Mantle/extobjc (= 2.1.6)
+  - Mantle/extobjc (2.1.6)
+  - ReactiveObjC (3.1.1)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - JSONModel
+  - Mantle
+  - ReactiveObjC
+  - YYModel
+
+SPEC REPOS:
+  trunk:
+    - JSONModel
+    - Mantle
+    - ReactiveObjC
+    - YYModel
+
+SPEC CHECKSUMS:
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+  Mantle: 4c0ed6ce47c96eccc4dc3bb071deb3def0e2c3be
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 1bf44c3c5a02720cc3e8d0458c9eadb7b3397e77
+
+COCOAPODS: 1.9.3

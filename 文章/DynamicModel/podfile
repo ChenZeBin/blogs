@@ -1,0 +1,6 @@
+target 'DynamicModel' do
+    pod 'Mantle'
+    pod 'YYModel'
+    pod 'JSONModel'
+    pod 'ReactiveObjC'
+  end

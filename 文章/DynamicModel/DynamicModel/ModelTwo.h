@@ -31,7 +31,6 @@ typedef NS_ENUM(NSInteger, IDLForumApiForumStatus) {
 @property(nonatomic,assign)SInt32 TypesSInt32;
 @property(nonatomic,assign)Float32 typesFloat32;
 @property(nonatomic,assign)Float64 typesFloat64;
-- (void)change;
 
 @end
 

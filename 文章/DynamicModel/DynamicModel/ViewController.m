@@ -22,7 +22,6 @@
     ModelOne *one = [ModelOne new];
     
     ModelTwo *two = [ModelTwo new];
-    [two change];
     
     InheritModel3 *three = [InheritModel3 new];
     

@@ -20,9 +20,11 @@
 		2BF0FAC8266E49DE00CB2743 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAC7266E49DE00CB2743 /* main.m */; };
 		2BF0FE7D266E4C9200CB2743 /* ModelOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FE7C266E4C9200CB2743 /* ModelOne.m */; };
 		2BF0FE81266E4C9C00CB2743 /* ModelTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FE80266E4C9C00CB2743 /* ModelTwo.m */; };
+		90268C718D52F8B308EFEE3E /* libPods-DynamicModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 078DF6D1CEDC78E97BD3C4DF /* libPods-DynamicModel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		078DF6D1CEDC78E97BD3C4DF /* libPods-DynamicModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicModel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBD80F72670B87600E992E0 /* InheritModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InheritModel.h; sourceTree = "<group>"; };
 		2BBD80F82670B87600E992E0 /* InheritModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InheritModel.m; sourceTree = "<group>"; };
 		2BBD84A12670CA3400E992E0 /* IESLiveDynamicModelDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicModelDefine.h; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		2BF0FE7C266E4C9200CB2743 /* ModelOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelOne.m; sourceTree = "<group>"; };
 		2BF0FE7F266E4C9C00CB2743 /* ModelTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelTwo.h; sourceTree = "<group>"; };
 		2BF0FE80266E4C9C00CB2743 /* ModelTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelTwo.m; sourceTree = "<group>"; };
+		592E5A5901EBD8D35BB8BF4C /* Pods-DynamicModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicModel.debug.xcconfig"; path = "Target Support Files/Pods-DynamicModel/Pods-DynamicModel.debug.xcconfig"; sourceTree = "<group>"; };
+		7199043B1D4C19EA511608E6 /* Pods-DynamicModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DynamicModel.release.xcconfig"; path = "Target Support Files/Pods-DynamicModel/Pods-DynamicModel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,17 +58,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90268C718D52F8B308EFEE3E /* libPods-DynamicModel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20E30C364DAB8F0D05C84FAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				078DF6D1CEDC78E97BD3C4DF /* libPods-DynamicModel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2BF0FAA9266E49D600CB2743 = {
 			isa = PBXGroup;
 			children = (
 				2BF0FAB4266E49D700CB2743 /* DynamicModel */,
 				2BF0FAB3266E49D700CB2743 /* Products */,
+				52A1962CFE366A8D83BC2BFB /* Pods */,
+				20E30C364DAB8F0D05C84FAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +121,16 @@
 			path = DynamicModel;
 			sourceTree = "<group>";
 		};
+		52A1962CFE366A8D83BC2BFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				592E5A5901EBD8D35BB8BF4C /* Pods-DynamicModel.debug.xcconfig */,
+				7199043B1D4C19EA511608E6 /* Pods-DynamicModel.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,6 +138,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BF0FACB266E49DE00CB2743 /* Build configuration list for PBXNativeTarget "DynamicModel" */;
 			buildPhases = (
+				4A6CCC238D7DE85E81BDE7EC /* [CP] Check Pods Manifest.lock */,
 				2BF0FAAE266E49D600CB2743 /* Sources */,
 				2BF0FAAF266E49D600CB2743 /* Frameworks */,
 				2BF0FAB0266E49D600CB2743 /* Resources */,
@@ -169,6 +195,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A6CCC238D7DE85E81BDE7EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DynamicModel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BF0FAAE266E49D600CB2743 /* Sources */ = {
@@ -324,6 +375,7 @@
 		};
 		2BF0FACC266E49DE00CB2743 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 592E5A5901EBD8D35BB8BF4C /* Pods-DynamicModel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -342,6 +394,7 @@
 		};
 		2BF0FACD266E49DE00CB2743 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7199043B1D4C19EA511608E6 /* Pods-DynamicModel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
