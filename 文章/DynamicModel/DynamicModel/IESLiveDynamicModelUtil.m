@@ -7,6 +7,24 @@
 
 #import "IESLiveDynamicModelUtil.h"
 
+char * const kPointRefCode = "^";
+char * const kOCObjcCode = "@";
+char * const kBoolCode = @encode(bool); // B
+char * const kCharCode = @encode(char); // c
+char * const kUnsignedCharCode = @encode(unsigned char); // C
+char * const kShortCode = @encode(short); // s
+char * const kUnsignedShortCode = @encode(unsigned short); // S
+char * const kSInt32Code = @encode(SInt32); // int、long i
+char * const kUInt32Code = @encode(UInt32); // I
+char * const kSInt64Code = @encode(SInt64); // long long q
+char * const kUInt64Code = @encode(UInt64); // Q
+char * const k32LongCode = @encode(UInt64); // l 32位下的long
+char * const k32ULongCode = @encode(UInt64); // L 32位下的unsigned long
+char * const kFloatCode = @encode(float); // f
+char * const kDoubleCode = @encode(double); // d
+char * const kCharRefCode = @encode(char *); // * char * 拥有自己的编码 *。这在概念上是很好理解的，因为 C 的字符串被认为是一个实体，而不是指针。
+char * const kClassCode = @encode(Class); // #
+
 const int kIESLiveSetMethodLenNotIncloudIvarName = 4;
 const int kIESLiveSetMethodLen = 3;
 void * const kPropertiesListKey = nil;
@@ -29,7 +47,7 @@ NSDictionary *getPropertiesList(Class cls, Class BaseCls)
                 const char *cName = property_getName(property);
                 NSString *key = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];;
                 NSString *value = [NSString stringWithCString:pro encoding:NSUTF8StringEncoding];;
-                [dicTemp setValue:value forKey:key];
+                [dicTemp setObject:value forKey:key];
             }
             free(properties);
             cls = [cls superclass];

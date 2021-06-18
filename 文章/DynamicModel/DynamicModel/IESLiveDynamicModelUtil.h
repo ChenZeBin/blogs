@@ -14,10 +14,29 @@
 
 @end
 
+FOUNDATION_EXTERN char * const kPointRefCode;
+FOUNDATION_EXTERN char * const kOCObjcCode;
+FOUNDATION_EXTERN char * const kBoolCode;
+FOUNDATION_EXTERN char * const kCharCode;
+FOUNDATION_EXTERN char * const kUnsignedCharCode;
+FOUNDATION_EXTERN char * const kShortCode;
+FOUNDATION_EXTERN char * const kUnsignedShortCode;
+FOUNDATION_EXTERN char * const kSInt32Code; // int、long
+FOUNDATION_EXTERN char * const kUInt32Code;
+FOUNDATION_EXTERN char * const kSInt64Code; // long long
+FOUNDATION_EXTERN char * const kUInt64Code;
+FOUNDATION_EXTERN char * const k32LongCode; // l 32位下的long
+FOUNDATION_EXTERN char * const k32ULongCode; // L 32位下的unsigned long
+FOUNDATION_EXTERN char * const kFloatCode;
+FOUNDATION_EXTERN char * const kDoubleCode;
+FOUNDATION_EXTERN char * const kCharRefCode; // *
+FOUNDATION_EXTERN char * const kClassCode; // #
+
 FOUNDATION_EXTERN const int kIESLiveSetMethodLenNotIncloudIvarName;
 FOUNDATION_EXTERN const int kIESLiveSetMethodLen;
 FOUNDATION_EXTERN void * const kPropertiesListKey;
 
+#define IESLiveEqual(charRef) (cPropertyAttributes[1] == charRef[0])
 #define IESLiveCacheBasicDataTypeIVar(BaseCls) cacheBasicDataTypeIVar(self,BaseCls, _cmd, @(number))
 #define IESLiveGetCacheBasicDataTypeIVar getCacheBasicDataTypeIVar(self, _cmd)
 #define IESLiveAddMethod(impl) class_addMethod(self,selector,class_getMethodImplementation(self,@selector(impl)),method_getTypeEncoding(class_getInstanceMethod(self, @selector(impl))));
@@ -42,7 +61,6 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
 
 /// 实现类
 #define IESLiveImplDynamicModelClass(ClassName) \
-\
 @implementation ClassName\
 @synthesize DynamicModel_propertyNamePtrMap;\
 \
@@ -75,23 +93,37 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
         NSString *propertyAttributes = propertyDic[propertyName] ? : propertyDic[propertyNameCapital];\
         const char *cPropertyAttributes = [propertyAttributes cStringUsingEncoding:NSUTF8StringEncoding];\
         if (propertyAttributes == nil) {\
-            return NO;\
+            return [super resolveInstanceMethod:selector];\
         } else {\
-            if(strstr(cPropertyAttributes,"@")){\
+            if(strstr(cPropertyAttributes,kOCObjcCode)){\
                 IESLiveAddMethod(dynamicSet:);\
             } else {\
-                if (cPropertyAttributes[1] == 'i'|| cPropertyAttributes[1] == 'l') {\
-                    IESLiveAddMethod(dynamicSetSInt32:);\
-                } else if (cPropertyAttributes[1] == 'B'|| cPropertyAttributes[1] == 'c') {\
+                if (IESLiveEqual(kPointRefCode) || IESLiveEqual(kCharRefCode) || IESLiveEqual(kClassCode)) {\
+                    IESLiveAddMethod(dynamicSetPtr:);\
+                } else if (IESLiveEqual(kBoolCode)) {\
                     IESLiveAddMethod(dynamicSetBool:);\
-                } else if (cPropertyAttributes[1] == 'q') {\
+                } else if (IESLiveEqual(kCharCode)) {\
+                    IESLiveAddMethod(dynamicSetChar:);\
+                } else if (IESLiveEqual(kUnsignedCharCode)) {\
+                    IESLiveAddMethod(dynamicSetUChar:)\
+                } else if (IESLiveEqual(kShortCode)) {\
+                    IESLiveAddMethod(dynamicSetShort:);\
+                } else if (IESLiveEqual(kUnsignedShortCode)) {\
+                    IESLiveAddMethod(dynamicSetUChar:)\
+                } else if (IESLiveEqual(kSInt32Code) || IESLiveEqual(k32LongCode)) {\
+                    IESLiveAddMethod(dynamicSetSInt32:);\
+                } else if (IESLiveEqual(kUInt32Code) || IESLiveEqual(k32ULongCode)) {\
+                    IESLiveAddMethod(dynamicSetUInt32:)\
+                } else if (IESLiveEqual(kSInt64Code)) {\
                     IESLiveAddMethod(dynamicSetSInt64:);\
-                } else if (cPropertyAttributes[1] == 'd') {\
-                    IESLiveAddMethod(dynamicSetDouble:);\
-                } else if (cPropertyAttributes[1] == 'f') {\
+                } else if (IESLiveEqual(kUInt64Code)) {\
+                    IESLiveAddMethod(dynamicSetUInt64:);\
+                } else if (IESLiveEqual(kFloatCode)) {\
                     IESLiveAddMethod(dynamicSetFloat:);\
+                } else if (IESLiveEqual(kDoubleCode)) {\
+                    IESLiveAddMethod(dynamicSetDouble:);\
                 } else {\
-                    return NO;\
+                    return [super resolveInstanceMethod:selector];\
                 }\
             }\
             return YES;\
@@ -101,23 +133,37 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
         NSString *propertyAttributes = propertyDic[selStr];\
         const char *cPropertyAttributes = [propertyAttributes cStringUsingEncoding:NSUTF8StringEncoding];\
         if (propertyAttributes == nil) {\
-            return NO;\
+            return [super resolveInstanceMethod:selector];\
         } else {\
-            if (strstr(cPropertyAttributes,"@")) {\
+            if(strstr(cPropertyAttributes,kOCObjcCode)){\
                 IESLiveAddMethod(dynamicGet);\
             } else {\
-                if (cPropertyAttributes[1] == 'i'|| cPropertyAttributes[1] == 'l') {\
-                    IESLiveAddMethod(dynamicGetSInt32);\
-                } else if (cPropertyAttributes[1] == 'B'|| cPropertyAttributes[1] == 'c') {\
+                if (IESLiveEqual(kPointRefCode) || IESLiveEqual(kCharRefCode) || IESLiveEqual(kClassCode)) {\
+                    IESLiveAddMethod(dynamicGetPtr);\
+                } else if (IESLiveEqual(kBoolCode)) {\
                     IESLiveAddMethod(dynamicGetBool);\
-                } else if (cPropertyAttributes[1] == 'q') {\
+                } else if (IESLiveEqual(kCharCode)) {\
+                    IESLiveAddMethod(dynamicGetChar);\
+                } else if (IESLiveEqual(kUnsignedCharCode)) {\
+                    IESLiveAddMethod(dynamicGetUChar)\
+                } else if (IESLiveEqual(kShortCode)) {\
+                    IESLiveAddMethod(dynamicGetShort);\
+                } else if (IESLiveEqual(kUnsignedShortCode)) {\
+                    IESLiveAddMethod(dynamicGetUChar)\
+                } else if (IESLiveEqual(kSInt32Code) || IESLiveEqual(k32LongCode)) {\
+                    IESLiveAddMethod(dynamicGetSInt32);\
+                } else if (IESLiveEqual(kUInt32Code) || IESLiveEqual(k32ULongCode)) {\
+                    IESLiveAddMethod(dynamicGetUInt32)\
+                } else if (IESLiveEqual(kSInt64Code)) {\
                     IESLiveAddMethod(dynamicGetSInt64);\
-                } else if (cPropertyAttributes[1] == 'd') {\
-                    IESLiveAddMethod(dynamicGetDouble);\
-                } else if (cPropertyAttributes[1] == 'f') {\
+                } else if (IESLiveEqual(kUInt64Code)) {\
+                    IESLiveAddMethod(dynamicGetUInt64);\
+                } else if (IESLiveEqual(kFloatCode)) {\
                     IESLiveAddMethod(dynamicGetFloat);\
+                } else if (IESLiveEqual(kDoubleCode)) {\
+                    IESLiveAddMethod(dynamicGetDouble);\
                 } else {\
-                    return NO;\
+                    return [super resolveInstanceMethod:selector];\
                 }\
             }\
             return YES;\
@@ -165,6 +211,26 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
     return objc_getAssociatedObject(self, _cmd);\
 }\
 \
+- (void)dynamicSetChar:(char)number\
+{\
+    IESLiveCacheBasicDataTypeIVar([ClassName class]);\
+}\
+\
+- (char)dynamicGetChar\
+{\
+    return [IESLiveGetCacheBasicDataTypeIVar charValue];\
+}\
+\
+- (void)dynamicSetUChar:(unsigned char)number\
+{\
+    IESLiveCacheBasicDataTypeIVar([ClassName class]);\
+}\
+\
+- (char)dynamicGetUChar\
+{\
+    return [IESLiveGetCacheBasicDataTypeIVar unsignedCharValue];\
+}\
+\
 - (void)dynamicSetSInt32:(SInt32)number\
 {\
     IESLiveCacheBasicDataTypeIVar([ClassName class]);\
@@ -173,6 +239,26 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
 - (SInt32)dynamicGetSInt32\
 {\
     return [IESLiveGetCacheBasicDataTypeIVar intValue];\
+}\
+\
+- (void)dynamicSetUInt32:(SInt32)number\
+{\
+    IESLiveCacheBasicDataTypeIVar([ClassName class]);\
+}\
+\
+- (SInt32)dynamicGetUInt32\
+{\
+    return [IESLiveGetCacheBasicDataTypeIVar unsignedIntValue];\
+}\
+\
+- (void)dynamicSetShort:(short)number\
+{\
+    IESLiveCacheBasicDataTypeIVar([ClassName class]);\
+}\
+\
+- (short)dynamicGetShort\
+{\
+    return [IESLiveGetCacheBasicDataTypeIVar shortValue];\
 }\
 \
 - (void)dynamicSetBool:(BOOL)number\
@@ -195,6 +281,16 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
     return [IESLiveGetCacheBasicDataTypeIVar integerValue];\
 }\
 \
+- (void)dynamicSetUInt64:(UInt64)number\
+{\
+    IESLiveCacheBasicDataTypeIVar([ClassName class]);\
+}\
+\
+- (UInt64)dynamicGetUInt64\
+{\
+    return [IESLiveGetCacheBasicDataTypeIVar unsignedIntegerValue];\
+}\
+\
 - (void)dynamicSetDouble:(double)number\
 {\
     IESLiveCacheBasicDataTypeIVar([ClassName class]);\
@@ -215,8 +311,22 @@ FOUNDATION_EXPORT NSNumber * getCacheBasicDataTypeIVar(id<IESLiveDynamicModel> m
     return [IESLiveGetCacheBasicDataTypeIVar floatValue];\
 }\
 \
+- (void)dynamicSetPtr:(void *)ptr\
+{\
+    NSString *ivarName = getPropertyName(self, [NSObject class], _cmd);\
+    NSValue *value = [NSValue valueWithPointer:ptr];\
+    [self.DynamicModel_propertyNamePtrMap setValue:ivarName forKey:ivarName];\
+    objc_setAssociatedObject(self,(__bridge const void * _Nonnull)(ivarName),value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);\
+}\
+\
+- (void *)dynamicGetPtr\
+{\
+    NSString *ivarName = self.DynamicModel_propertyNamePtrMap[NSStringFromSelector(_cmd)];\
+    NSValue *value = objc_getAssociatedObject(self, (__bridge const void * _Nonnull)(ivarName));\
+    return value.pointerValue;\
+}\
+\
 @end
-
 
 
 

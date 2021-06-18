@@ -2,12 +2,21 @@ import sys
 import re
 import os
 # 继承MTLModel
-canReplaceClassList = ["MTLModel"]
+canReplaceClassList = ["MTLModel","IESLiveECommerceBaseApiModel","HTSLiveFeedRoomItem","IESLiveStampBaseModel",
+                       "IESVSFansGroupEntryInfoModel","IESLiveFansGroupEntryInfo","IESCategoryModel",
+                       "IESLiveAnchorCommercialComponentBaseModel","IESLiveCommonGuideModel"]
 # 类是Model或者Info后缀，并且继承NSObject
 findSuffixFileNameList = ["Model.h","Info.h"]
 canReplaceSuffixClassNameList = ["Model","Info"]
 cannotModifyList = ["ViewModel","ClassName"]
-willReplaceClassDic = {"NSObject":"IESLiveDynamicModel","MTLModel":"IESLiveDynamicMTLModel"}
+willReplaceClassDic = {"NSObject":"IESLiveDynamicModel","MTLModel":"IESLiveDynamicMTLModel",
+                       "IESLiveECommerceBaseApiModel":"IESLiveECommerceBaseApiModel","HTSLiveFeedRoomItem":"HTSLiveFeedRoomItem",
+                       "IESLiveStampBaseModel":"IESLiveStampBaseModel","IESVSFansGroupEntryInfoModel":"IESVSFansGroupEntryInfoModel",
+                       "IESLiveFansGroupEntryInfo":"IESLiveFansGroupEntryInfo","IESCategoryModel":"IESCategoryModel",
+                       "IESLiveAnchorCommercialComponentBaseModel":"IESLiveAnchorCommercialComponentBaseModel",
+                       "IESLiveCommonGuideModel":"IESLiveCommonGuideModel"}
+# headFile = '#import \"' + "IESLiveDynamicModelDefine" + '.h\"'+'\n'
+headFile = '#import <IESLiveKit/IESLiveDynamicModelDefine.h>\n'
 
 # 名字符合可以替换，但是基类不是NSObject
 baseNotNSObjectClassList = []
@@ -60,15 +69,23 @@ def getDynamicString(interfaceContent):
     lines = interfaceContent.splitlines()
     reg = r"(\w+(?=;))"
     resultString = "@dynamic "
+    hasDynamic = False
     for line in lines:
-        ivarNameList = re.findall(reg,line)
-        if len(ivarNameList) > 0:
-            ivarName = ivarNameList[0]
-            resultString = resultString + ivarName + ','
+        if line.startswith('@property'):
+            if 'readonly' not in line:
+                ivarNameList = re.findall(reg, line)
+                if len(ivarNameList) > 0:
+                    ivarName = ivarNameList[0]
+                    resultString = resultString + ivarName + ','
+                    hasDynamic = True
+
 
     resultString = replaceLastChar(resultString,";")
+    if hasDynamic:
+        return resultString
+    else:
+        return ""
 
-    return resultString
 
 def getClassName(interfaceContent):
     reg = r"@interface(.+?):"
@@ -160,16 +177,14 @@ def modifyBaseClass(pathH, currentClass):
 
         if canModify:
             tmp = lines[8]
-            newStr = r"#import \""+newBaseClass+"\".h"
-            print(newStr)
-            # lines[8] = newStr
+            if "IESLiveDynamicModelDefine" not in tmp:
+                lines[8] = headFile + tmp
+
             lines[lineNum] = newString
             newContent = "".join(lines)
             writeFileContent(pathH, newContent)
 
         return canModify
-
-
 
 
 # 是否继承要修改的类
@@ -281,8 +296,33 @@ def findCanReplaceClassNameAndDynamicDic():
             if isInheritCanModifyClass(interfaceContent) == True:
                 className = getClassName(interfaceContent)
                 dynamicStr = getDynamicString(interfaceContent)
-                dic[className] = dynamicStr
+                if len(dynamicStr) > 0:
+                    dic[className] = dynamicStr
+
     return dic
+
+def modifyInitSelf(path):
+    try:
+        f = open(path, 'r')
+    except:
+        print(path+"路径找不到，请手动看下")
+        return ""
+    else:
+        lines = f.readlines()
+
+        f.close()
+
+        enterMatch = False
+        for idx,line in enumerate(lines,0):
+            if enterMatch:
+                line = line.replace(" _"," self.")
+                lines[idx] = line
+                if "return self" in line:
+                    enterMatch = False
+            else:
+                if line.startswith("- (instancetype)init"):
+                    enterMatch = True
+        writeFileContent(path,"".join(lines))
 
 if __name__ == '__main__':
     successModifyClassList = []
@@ -306,6 +346,7 @@ if __name__ == '__main__':
                     print("异常：手动检查" + className + "类的dynamic和继承类"+pathInter)
                 else:
                     successModifyClassList.append(className)
+                    modifyInitSelf(pathImpl)
         else:
             print(className + "类已经有dynamic代码")
 

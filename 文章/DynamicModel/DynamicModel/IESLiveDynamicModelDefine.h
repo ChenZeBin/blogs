@@ -6,5 +6,7 @@
 //
 
 #import "IESLiveDynamicModelUtil.h"
+#import <Mantle/Mantle.h>
 
 IESLiveDefineDynamicModelClass(IESLiveDynamicModel, NSObject)
+IESLiveDefineDynamicModelClass(IESLiveDynamicMTLModel, MTLModel)

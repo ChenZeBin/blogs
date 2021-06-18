@@ -8,5 +8,7 @@
 #import "TestInfo.h"
 
 @implementation TestInfo
+@dynamic;
+
 
 @end

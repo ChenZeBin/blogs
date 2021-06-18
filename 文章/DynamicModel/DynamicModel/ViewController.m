@@ -6,10 +6,8 @@
 //
 
 #import "ViewController.h"
-#import "ModelOne.h"
-#import "ModelTwo.h"
 #import <objc/runtime.h>
-#import "InheritModel.h"
+#import "FourModel.h"
 
 @interface ViewController ()
 
@@ -19,13 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ModelOne *one = [ModelOne new];
-    
-    ModelTwo *two = [ModelTwo new];
-    
-    InheritModel3 *three = [InheritModel3 new];
-    
+  
+    FourModel *fourModel = [FourModel new];
+  
+    int intArray[5] = {1, 2, 3, 4, 5};
+    NSLog(@"int[]      : %s", @encode(typeof(intArray)));
+
+    float floatArray[3] = {0.1f, 0.2f, 0.3f};
+    NSLog(@"float[]    : %s", @encode(typeof(floatArray)));
 }
+
 
 
 
