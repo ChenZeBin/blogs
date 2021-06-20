@@ -14,15 +14,36 @@ int max(char *c)
 }
 static void * content = ((void *)0);
 
+@implementation FourModel (aaa)
+
+- (instancetype)init
+{
+    _mutSet
+}
+
+@end
 
 @implementation FourModel
-@dynamic strongStr,mcopyStr,mutStr,strongAry,mCopyAry,mutAry,set,mutSet,mapTable,idObjc,objc,intPtr,voidPtr,ucharVal,realUCharVal,charVal,enumVal1,enumVal2,mask,optionEnumVal,unionVarVal,floatVal,doubleVal,shortVal,intVal,longVal,llongVal,uIntegerVal,functionPointerDefault,myBlock1,myBlock2,resultBool,uint32Val,charRef,mclass;
+@dynamic strongStr,mcopyStr,mutStr,strongAry,mCopyAry,mutAry,set,mutSet,mapTable,idObjc,objc,intPtr,voidPtr,ucharVal,realUCharVal,charVal,enumVal1,enumVal2,mask,optionEnumVal,testEnum,unionVarVal,resultBool,floatVal,doubleVal,shortVal,intVal,intVaL,longVal,llongVal,uIntegerVal,uint32Val,charRef,mclass,int64t,int32t,uint32t,absoluteTime,dispatchBlock,isVerified,canUse,timeInterval;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        
         [self change];
         
     }
@@ -72,8 +93,15 @@ static void * content = ((void *)0);
 //
 //    NSLog(@"%@",NSStringFromCGPoint(self.point) );
     
+    self.int64t = 111;
+    self.int32t = 111;
+    self.uint32t = 111;
+    self.absoluteTime = CFAbsoluteTimeGetCurrent();
+    self.dispatchBlock = ^{NSLog(@"dispatchBlock");};
+    
     // 基础数据类型
     self.uint32Val = 111;
+    
     self.resultBool = YES;
     self.ucharVal = 'c';
     self.charVal = 'c';
@@ -86,6 +114,17 @@ static void * content = ((void *)0);
     self.optionEnumVal = OPTIONSEnum1;
     self.floatVal = 123.123;
     self.intVal = 1;
+    self.intVaL = 1;
+    
+    NSLog(@"********:%f",[[NSDate date] timeIntervalSince1970]);
+    for (NSInteger i = 0; i < 100000; i++) {
+        self.intVal;
+    }
+    NSLog(@"********:%f",[[NSDate date] timeIntervalSince1970]);
+    for (NSInteger i = 0; i < 100000; i++) {
+        self.intVaL;
+    }
+    NSLog(@"********:%f",[[NSDate date] timeIntervalSince1970]);
     self.longVal = 1;
     self.llongVal = 10;
     
@@ -122,5 +161,27 @@ static void * content = ((void *)0);
     
 }
 
+
+- (void)test111:(NSString *)string
+        test222:(int)inta
+{
+    
+}
+
+@end
+
+@implementation FiveModel
+@dynamic mcopyStr,mutStr,strongAry,mCopyAry,mutAry,set,mutSet,mapTable,idObjc,objc;
+
+
+
+
+
+
+
+- (instancetype)init
+{
+    _strongStr
+}
 
 @end

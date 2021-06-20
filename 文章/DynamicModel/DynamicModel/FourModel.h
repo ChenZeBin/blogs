@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, MyTestEnum) {
+    MyTestEnum111,
+    <#MyEnumValueB#>,
+    <#MyEnumValueC#>,
+};
+
 typedef enum : NSUInteger {
     enum11,
 } enum1;
@@ -44,7 +50,6 @@ union UnionVar {
 };
 
 
-
 @interface FourModel : IESLiveDynamicModel
 
 /// oc
@@ -71,8 +76,8 @@ union UnionVar {
 // 指针
 @property (nonatomic, assign) int (*functionPointerDefault)(char *);
 @property (nonatomic, assign) int *intPtr;
-@property (nonatomic, assign) void *voidPtr;
 
+@property (nonatomic, assign) void *voidPtr;
 
 // 基础数据类型
 @property (nonatomic, assign) unsigned char ucharVal;
@@ -82,6 +87,7 @@ union UnionVar {
 @property (nonatomic, assign) enum2 enumVal2;
 @property (nonatomic, assign) PersonMask mask;
 @property (nonatomic, assign) OPTIONSEnum optionEnumVal;
+@property (nonatomic, assign) MyTestEnum testEnum;
 //@property(nonatomic) CGRect            frame;
 //@property (nonatomic) CGPoint point;
 
@@ -91,6 +97,8 @@ union UnionVar {
 @property (nonatomic, assign) double doubleVal;
 @property (nonatomic, assign) short shortVal;
 @property (nonatomic, assign) int intVal;
+@property (nonatomic, assign) int intVaL;
+
 @property (nonatomic, assign) long longVal;
 @property (nonatomic, assign) long long llongVal;
 
@@ -99,7 +107,48 @@ union UnionVar {
 @property (nonatomic, assign) char * charRef;
 
 @property (nonatomic, assign) Class mclass;
+@property (nonatomic, assign) int64_t int64t;
+@property (nonatomic, assign) int32_t int32t;
+@property (nonatomic, assign) uint32_t uint32t;
+@property (nonatomic, assign) CFAbsoluteTime absoluteTime;
+@property (nonatomic, copy) dispatch_block_t dispatchBlock;
+
+@property (nonatomic, strong, readonly) NSString *readonlyStr;
+@property(nonatomic, assign) BOOL isVerified; ///< 是否已绑定手机号
+//@property (nonatomic, strong, readonly) NSString *readonlyStr111;
+@property(nonatomic, assign) BOOL canUse;
+@property (nonatomic, assign) CFTimeInterval timeInterval;
+
+- (void)test111:(NSString *)string
+        test222:(int)inta;
 
 @end
+
+
+@interface FiveModel : IESLiveDynamicModel
+
+/// oc
+// string
+@property (nonatomic, strong, readonly) NSString *strongStr;
+@property (nonatomic, copy) NSString *mcopyStr;
+@property (nonatomic, strong) NSMutableString *mutStr;
+// array
+@property (nonatomic, strong) NSArray *strongAry;
+@property (nonatomic, copy) NSArray *mCopyAry;
+@property (nonatomic, strong) NSMutableArray *mutAry;
+// set
+@property (nonatomic, strong) NSSet *set;
+@property (nonatomic, strong) NSMutableSet *mutSet;
+// map
+@property (nonatomic, strong) NSMapTable *mapTable;
+// block
+@property (nonatomic, copy) void(^myBlock1)(void);
+@property (nonatomic, copy) int(^myBlock2)(NSString *str);
+// id
+@property (nonatomic, strong) id idObjc;
+@property (nonatomic, strong) NSObject *objc;
+
+@end
+
 
 NS_ASSUME_NONNULL_END

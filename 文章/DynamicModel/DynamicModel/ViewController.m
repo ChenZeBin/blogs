@@ -9,7 +9,15 @@
 #import <objc/runtime.h>
 #import "FourModel.h"
 
+struct Student {
+    int iii;
+};
+
+typedef struct Student Student;
+
 @interface ViewController ()
+
+@property (nonatomic, assign) Student student;
 
 @end
 
@@ -25,6 +33,7 @@
 
     float floatArray[3] = {0.1f, 0.2f, 0.3f};
     NSLog(@"float[]    : %s", @encode(typeof(floatArray)));
+    NSTextAlignment;
 }
 
 
