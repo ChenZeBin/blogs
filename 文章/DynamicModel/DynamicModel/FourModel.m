@@ -16,29 +16,11 @@ static void * content = ((void *)0);
 
 @implementation FourModel (aaa)
 
-- (instancetype)init
-{
-    _mutSet
-}
 
 @end
 
 @implementation FourModel
-@dynamic strongStr,mcopyStr,mutStr,strongAry,mCopyAry,mutAry,set,mutSet,mapTable,idObjc,objc,intPtr,voidPtr,ucharVal,realUCharVal,charVal,enumVal1,enumVal2,mask,optionEnumVal,testEnum,unionVarVal,resultBool,floatVal,doubleVal,shortVal,intVal,intVaL,longVal,llongVal,uIntegerVal,uint32Val,charRef,mclass,int64t,int32t,uint32t,absoluteTime,dispatchBlock,isVerified,canUse,timeInterval;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@dynamic myString,strongStr,mcopyStr,mutStr,strongAry,mCopyAry,mutAry,set,mutSet,mapTable,idObjc,Objc,intPtr,voidPtr,realUCharVal,charVal,enumVal1,enumVal2,mask,optionEnumVal,testEnum,resultBool,floatVal,doubleVal,shortVal,intVal,intVaL,longVal,llongVal,uIntegerVal,uint32Val,charRef,mclass,int64t,int32t,uint32t,absoluteTime,dispatchBlock,isVerified,canUse,timeInterval,rectCorner;
 
 - (instancetype)init
 {
@@ -50,8 +32,19 @@ static void * content = ((void *)0);
     return self;
 }
 
+- (void)method:(NSString *)str
+{
+    
+}
 - (void)change
 {
+//    self.mclass = [self class];
+//    self.uIntVal = 1;
+    self.myString = @"123";
+
+    self.ushortVal = -1;
+    self.ulongVal = -1;
+    self.Objc = [NSObject new];
     /// oc
     // string
     self.strongStr = @"strongStr";
@@ -76,7 +69,7 @@ static void * content = ((void *)0);
     };
     // id
     self.idObjc = [NSObject new];
-    self.objc = [NSObject new];
+//    self.objc = [NSObject new];
     
     // 指针
     self.mclass = [NSObject class];
@@ -84,11 +77,17 @@ static void * content = ((void *)0);
     self.charRef = "123";
     self.functionPointerDefault = max;
     self.functionPointerDefault('c');
+    self.rectCorner = UIRectCornerTopLeft | UIRectCornerTopRight;
     int i = 10;
     self.intPtr = &i;
+    self.intPtr = NULL;
+    self.intPtr;
     self.voidPtr = &content;
-    NSLog(@"%s",@encode(CGPoint));
-//    self.frame = CGRectMake(1, 1, 1, 1);
+    self.frame = CGRectMake(1, 1, 1, 1);
+    CGRect frame = self.frame;
+    NSLog(@"%@",NSStringFromCGRect(frame));
+    CGRect frame1 = CGRectMake(1, 1, 1, 1);
+    NSLog(@"%@",NSStringFromCGRect(frame1));
 //    self.point = CGPointMake(1, 1);
 //
 //    NSLog(@"%@",NSStringFromCGPoint(self.point) );
@@ -131,6 +130,7 @@ static void * content = ((void *)0);
     self.uIntegerVal = 1;
     self.uIntegerVal = -1;
     
+    NSLog(@"%@",NSStringFromCGRect(self.frame));
     NSLog(@"%@",self.resultBool ? @"YES" : @"NO");
     NSLog(@"%@",self.strongStr);
     NSLog(@"%@",self.mcopyStr);
@@ -143,8 +143,8 @@ static void * content = ((void *)0);
     NSLog(@"%@",self.myBlock1);
     NSLog(@"%@",self.myBlock2);
     NSLog(@"%@",self.idObjc);
-    NSLog(@"%@",self.objc);
-    NSLog(@"%d",*(self.intPtr));
+    NSLog(@"%@",self.Objc);
+//    NSLog(@"%d",*(self.intPtr));
     NSLog(@"%d",self.voidPtr);
     NSLog(@"%c",self.charVal);
     NSLog(@"%lf",self.doubleVal);
@@ -177,11 +177,5 @@ static void * content = ((void *)0);
 
 
 
-
-
-- (instancetype)init
-{
-    _strongStr
-}
 
 @end

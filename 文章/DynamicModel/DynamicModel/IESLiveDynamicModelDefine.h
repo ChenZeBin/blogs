@@ -5,7 +5,7 @@
 //  Created by bytedance on 2021/6/9.
 //
 
-#import "IESLiveDynamicModelUtil.h"
+#import "IESLiveDynamicModelInterface.h"
 #import <Mantle/Mantle.h>
 
 IESLiveDefineDynamicModelClass(IESLiveDynamicModel, NSObject)

@@ -11,10 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM (NSInteger, IESVSGiftAnimationItemType) {
+    IESVSGiftAnimationItemTypeUnknow,
+    IESVSGiftAnimationItemTypeNormal,
+    IESVSGiftAnimationItemTypeCombo,
+    IESVSGiftAnimationItemTypeVideoTray,
+    IESVSGiftAnimationItemTypeVideoOnly
+};
+
 typedef NS_ENUM(NSUInteger, MyTestEnum) {
     MyTestEnum111,
-    <#MyEnumValueB#>,
-    <#MyEnumValueC#>,
 };
 
 typedef enum : NSUInteger {
@@ -49,8 +55,17 @@ union UnionVar {
     int i;
 };
 
-
 @interface FourModel : IESLiveDynamicModel
+
+@property (nonatomic, assign) NSString *myString;
+@property (nonatomic, assign) unsigned int uIntVal;
+// 测试脚本
+@property (atomic) id test1;
+@property (class) id test2;
+@property (getter=test3) id test3;
+@property (setter=setTest4:) id test4;
+@property (readonly) id test5;
+
 
 /// oc
 // string
@@ -71,7 +86,8 @@ union UnionVar {
 @property (nonatomic, copy) int(^myBlock2)(NSString *str);
 // id
 @property (nonatomic, strong) id idObjc;
-@property (nonatomic, strong) NSObject *objc;
+//@property (nonatomic, strong) NSObject *objc;
+@property (nonatomic, strong) NSObject *Objc;
 
 // 指针
 @property (nonatomic, assign) int (*functionPointerDefault)(char *);
@@ -88,7 +104,7 @@ union UnionVar {
 @property (nonatomic, assign) PersonMask mask;
 @property (nonatomic, assign) OPTIONSEnum optionEnumVal;
 @property (nonatomic, assign) MyTestEnum testEnum;
-//@property(nonatomic) CGRect            frame;
+@property(nonatomic) CGRect            frame;
 //@property (nonatomic) CGPoint point;
 
 @property (nonatomic, assign) union UnionVar unionVarVal;
@@ -96,11 +112,14 @@ union UnionVar {
 @property (nonatomic, assign) float floatVal;
 @property (nonatomic, assign) double doubleVal;
 @property (nonatomic, assign) short shortVal;
+@property (nonatomic, assign) ushort ushortVal;
+
 @property (nonatomic, assign) int intVal;
 @property (nonatomic, assign) int intVaL;
 
 @property (nonatomic, assign) long longVal;
 @property (nonatomic, assign) long long llongVal;
+@property (nonatomic, assign) u_long ulongVal;
 
 @property (nonatomic, assign) NSUInteger uIntegerVal;
 @property (nonatomic, assign) UInt32 uint32Val;
@@ -118,6 +137,8 @@ union UnionVar {
 //@property (nonatomic, strong, readonly) NSString *readonlyStr111;
 @property(nonatomic, assign) BOOL canUse;
 @property (nonatomic, assign) CFTimeInterval timeInterval;
+@property (nonatomic, assign) UIRectCorner rectCorner;
+//@property (nonatomic, strong, class) NSObject *objc;
 
 - (void)test111:(NSString *)string
         test222:(int)inta;

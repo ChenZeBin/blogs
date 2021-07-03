@@ -1,38 +1,43 @@
 import sys
 import re
 import os
-# 继承MTLModel
+# 继承这些类肯定可以修改
 canReplaceClassList = ["MTLModel","IESLiveECommerceBaseApiModel","HTSLiveFeedRoomItem","IESLiveStampBaseModel",
                        "IESVSFansGroupEntryInfoModel","IESLiveFansGroupEntryInfo",
-                       "IESLiveAnchorCommercialComponentBaseModel","IESLiveCommonGuideModel"]
+                       "IESLiveAnchorCommercialComponentBaseModel","IESLiveCommonGuideModel","HTSLiveToolbarItem","IESLiveGuideToolBarItem"]
 # 类是Model或者Info后缀，并且继承NSObject
-canReplaceSuffixClassNameList = ["Model","Info","HTSLiveFeedRoomItem"]
+canReplaceSuffixClassNameList = ["Model","Info","Item"]
 cannotModifyList = ["ViewModel","ClassName"]
 willReplaceClassDic = {"NSObject":"IESLiveDynamicModel","MTLModel":"IESLiveDynamicMTLModel",
                        "IESLiveECommerceBaseApiModel":"IESLiveECommerceBaseApiModel","HTSLiveFeedRoomItem":"HTSLiveFeedRoomItem",
                        "IESLiveStampBaseModel":"IESLiveStampBaseModel","IESVSFansGroupEntryInfoModel":"IESVSFansGroupEntryInfoModel",
                        "IESLiveFansGroupEntryInfo":"IESLiveFansGroupEntryInfo","IESCategoryModel":"IESCategoryModel",
                        "IESLiveAnchorCommercialComponentBaseModel":"IESLiveAnchorCommercialComponentBaseModel",
-                       "IESLiveCommonGuideModel":"IESLiveCommonGuideModel"}
+                       "IESLiveCommonGuideModel":"IESLiveCommonGuideModel","HTSLiveToolbarItem":"HTSLiveToolbarItem",
+                       "IESLiveGuideToolBarItem":"IESLiveGuideToolBarItem"}
 
 baseTypeData = ["BOOL","NSUInteger","NSInteger","int","short","SInt32","SInt64","UInt32","UInt64",
                 "long","char","id","Class","float","CGFloat","double","NSTimeInterval","int64_t","int32_t",
-                "uint32_t","uint64_t","CFAbsoluteTime","dispatch_block_t","uint8_t","CFTimeInterval"]
+                "uint32_t","uint64_t","CFAbsoluteTime","dispatch_block_t","uint8_t","CFTimeInterval","UIRectCorner"]
 
 # 结构体不能用dynamicModel
-cannotReplaceClassTypeList = ["CGRect","CGPoint","CGSize"]
+cannotReplaceClassTypeList = ["CGRect","CGPoint","CGSize","UIEdgeInsets"]
 
 notOCObjcAndBaseTypeDataList = []
 enumIVarList = []
 
-headFile = '#import \"' + "IESLiveDynamicModelDefine" + '.h\"'+'\n'
-# headFile = '#import <IESLiveKit/IESLiveDynamicModelDefine.h>\n'
+headFileName = "IESLiveDynamicModelDefine"
+headFile = '#import \"' + headFileName + '.h\"'+'\n'
+# headFile = '#import <IESLiveKit/'+ headFileName + '.h>\n'
 
 # 名字符合可以替换，但是基类不是NSObject
 baseNotNSObjectClassList = []
 
 # 下划线变量正则
-_ivarRegStr = r"(\s+)_(\w+)(\s+)"
+_ivarRegStr = r"\b(\w+)\b"
+
+# 不符合要求属性
+cannotModifyPropertyList = []
 
 # 修改的属性数量
 propertyCount = 0
@@ -66,9 +71,15 @@ def getInterfaceContent(content):
 def getImpleContent(className,fileContent):
     reg = r'@implementation.*?@end'
     list = re.findall(reg, fileContent, re.S)
+
     if len(list) == 0:
-        print("找不到"+className+"类的impl代码_1")
-        return ""
+        list1 = re.findall(r"@implementation(\s*)(\w+)(\s*)\{.*?@end", fileContent, re.S)
+        if len(list1) == 0:
+            print("找不到" + className + "类的impl代码_1")
+            return ""
+        else:
+            list = list1
+
     if len(list) > 0:
         for implContent in list:
             categoryList = re.findall(r"@implementation(\s+)(\w+)(\s*)\(",implContent)
@@ -91,14 +102,24 @@ def getDynamicString(interfaceContent):
     resultString = dynamicStr
     for line in lines:
         if line.startswith('@property'):
-            preRes1 = 'readonly' not in line
-            preRes2 = 'struct' not in line
-            preRes3 = (line.startswith('//') == False)
+            listAttributeStrList = re.findall(r"\(.*?\)",line)
+            if len(listAttributeStrList) > 0:
+                listAttributeList = re.findall(r"\w+",listAttributeStrList[0])
+                # 使用readonly修饰的属性，大部分在类内部使用下划线变量，所以readonly不修改
+                # 因为脚本会自动将下划线变成，替换为self.ivar,所以指定getter和setter不修改，原因是怕脚本执行错误，导致在getter中执行self.ivar导致无限循环调用
+                # 使用class修饰，getter是类方法，dynamicModel添加的是实例方法，所以class修饰的属性不修改
+                # atomic因为是原子性的，动态添加的setter和getter方法并没有加锁，所以atomic不能修改
+                # weak属性不支持，因为关联属性不支持weak
+                if 'readonly' in listAttributeList or 'getter' in listAttributeList or 'setter' in listAttributeList or 'class' in listAttributeList or 'atomic' in listAttributeList or 'weak' in listAttributeList:
+                    continue
+
+            preRes1 = len(re.findall(r"\bstruct\b",line)) == 0
+            preRes2 = (line.startswith('//') == False)
+            preRes3 = len(re.findall(r"\bunion\b", line)) == 0
             if preRes1 and preRes2 and preRes3:
                 ivarNameList = re.findall(reg, line)
                 if len(ivarNameList) > 0:
                     ivarName = ivarNameList[0]
-                    global propertyCount
                     if '*' not in line:
                         reg1 = r"@property(\s*)\(.*?\)(\s*)(\w+)"
                         classTypeList = re.findall(reg1, line)
@@ -108,15 +129,27 @@ def getDynamicString(interfaceContent):
                                 classType = classTypeTuple[2]
 
                                 if classType not in cannotReplaceClassTypeList:
-                                    propertyCount += 1
-                                    resultString = resultString + ivarName + ','
+
                                     if classType not in baseTypeData:
-                                        #查找枚举
-                                        classTypeDefinePath = findPathList(r"typedef(\s*)NS_ENUM\((\w+),(\s*)"+classType)
-                                        if len(classTypeDefinePath) <= 0:
-                                            notOCObjcAndBaseTypeDataList.append(line)
+                                        if "union" == classType or "struct" == classType:
+                                            print("联合体或者结构体属性不允许使用@dynamic修饰（对这类属性，脚本不会自动添加@dynamic，仅log该日志）"+line)
                                         else:
-                                            enumIVarList.append(line)
+                                            # 查找枚举
+                                            classTypeDefinePath = findPathList(
+                                                r"typedef(\s*)NS_ENUM(\s*)\((\w+),(\s*)" + classType)
+                                            classTypeDefinePath1 = findPathList(
+                                                r"typedef(\s+)enum(\s*):(\s*)(\w+).*?\}(\s*)" + classType)
+                                            classTypeDefinePath2 = findPathList(
+                                                r"typedef(\s*)NS_OPTIONS\((\w+),(\s*)" + classType)
+                                            if len(classTypeDefinePath) == 0 and len(classTypeDefinePath1) == 0 and len(classTypeDefinePath2) == 0:
+                                                # 前面过滤了联合体和结构体，这里再过滤没枚举，剩下的我也不知道有哪些类型了，所以需要log下
+                                                notOCObjcAndBaseTypeDataList.append(line)
+                                            else:
+                                                enumIVarList.append(line)
+                                                resultString = resultString + ivarName + ','
+
+                                    else:
+                                        resultString = resultString + ivarName + ','
 
 
 
@@ -125,8 +158,9 @@ def getDynamicString(interfaceContent):
                         else:
                             print("异常情况：" + line)
                     else:
-                        propertyCount += 1
                         resultString = resultString + ivarName + ','
+            else:
+                cannotModifyPropertyList.append(line)
 
     if (len(resultString) == len(dynamicStr)):
         return ""
@@ -169,7 +203,7 @@ def findImple(path,className):
         print("findImple打开文件失败"+className+path)
         return {}
     else:
-        reg = r"@implementation(\s+)" + className
+        reg = r"@implementation(\s+)" + className + "[\n|(\s*)/{]"
         lines = f.readlines()
         lineNum = 0
         canModify = False
@@ -193,7 +227,7 @@ def writeDynamicString(path,className,dynamicString):
         lines = dic["lines"]
         lineNum = dic["lineNum"]
         lines.insert(lineNum, dynamicString)  # 在第 findLine+1 行插入
-        lines.insert(lineNum + 1, "\n\n")  # 在第 findLine+1 行插入
+        lines.insert(lineNum + 1, "\n")  # 在第 findLine+1 行插入
         newContent = "".join(lines)
         writeFileContent(path, newContent)
     return canModify
@@ -235,7 +269,7 @@ def modifyBaseClass(pathH, currentClass):
 
         if canModify:
             tmp = lines[8]
-            if "IESLiveDynamicModelDefine" not in tmp:
+            if headFileName not in tmp:
                 lines[8] = headFile + tmp
 
             lines[lineNum] = newString
@@ -265,7 +299,12 @@ def isInheritCanModifyClass(interfaceString):
                 if res2 == True:
                     return False
             if isInheritNSObject(interfaceString) == False:
-                baseNotNSObjectClassList.append(className)
+                list = re.findall(r"@interface(\s*)"+className+"(\s*):(\s*)(\w+)",interfaceString)
+                result = className
+                if len(list[0]) >= 4:
+
+                    result = result + " : " + list[0][3]
+                baseNotNSObjectClassList.append(result)
                 return False
             else:
                 return True
@@ -358,7 +397,10 @@ def findCanReplaceClassNameAndDynamicDic():
 
     return dic
 
-def modifyInitSelf(path, dynamicStr, className):
+def modify_ivarToSelfIvar(path, dynamicStr, className):
+    if "dynamic" not in dynamicStr:
+        print("dynamicStr没有@dynamic"+dynamicStr+className)
+        return
     try:
         f = open(path, 'r')
     except:
@@ -378,56 +420,20 @@ def modifyInitSelf(path, dynamicStr, className):
 
         for idx,line in enumerate(lines,0):
             if (idx+1 >= isWillFindImpleLineNum):
-                if enterMatch:
-                    list = re.findall(_ivarRegStr, line)
+                list = re.findall(_ivarRegStr, line)
+                for ivarName in list:
+                    ivarName = ivarName[1:] # 去除下划线
+                    if ivarName in ivarlist:
+                        willReplaceStr = "_" + ivarName
+                        line = line.replace(willReplaceStr, "self." + ivarName)
 
-                    if len(list) > 0:
+                lines[idx] = line
 
-                        for ivarNameTuple in list:
-                            if len(ivarNameTuple) >= 3:
-                                ivarName = ivarNameTuple[1]
-                                if ivarName in ivarlist:
-                                    willReplaceStr = "_" + ivarName
-                                    line = line.replace(willReplaceStr, "self." + ivarName)
-
-                        lines[idx] = line
-
-                    if "return self" in line:
-                        enterMatch = False
-                else:
-                    if line.startswith("- (instancetype)init") or line.startswith("- (id)init"):
-                        enterMatch = True
-                    if line.startswith("@end"):
-                        break
+                if line.startswith("@end"):
+                    break
 
 
         writeFileContent(path,"".join(lines))
-
-def find_Ivar(path,dynamicStr):
-    setTmp = set()
-    try:
-        f = open(path, 'r')
-    except:
-        print(path+"路径找不到，请手动看下")
-        return ""
-    else:
-        lines = f.readlines()
-
-        f.close()
-
-        for line in lines:
-            list = re.findall(_ivarRegStr, line)
-            for ivarNameTuple in list:
-                if len(ivarNameTuple) >= 3:
-                    ivarName = ivarNameTuple[1]
-                    if ivarName in dynamicStr:
-                        setTmp.add(ivarName)
-
-
-        if len(setTmp) > 0:
-            print("**********************")
-            print(path + "路径下这些下划线的变量需要手动改下：")
-            print(setTmp)
 
 def deleteHasGetterSetterIvar(implContent,dynamicStr):
     reg = r"(\w+)"
@@ -438,7 +444,11 @@ def deleteHasGetterSetterIvar(implContent,dynamicStr):
     for ivarName in list:
         tmp = ivarName.replace(ivarName[0],ivarName[0].upper(),1)
 
-        if "set"+tmp+":" not in implContent:
+        if "set"+tmp+":" not in implContent \
+                and len(re.findall(r"-(\s*)\((.*?)\)(\s*)"+ivarName+"[(\s+)|\{]",implContent)) == 0 \
+                and len(re.findall(r"@synthesize(\s+)"+ivarName+"(\s*)[=|;]",implContent)) == 0:
+            global propertyCount
+            propertyCount += 1
             resultString = resultString + ivarName + ','
     if len(resultString) == len(ynamicStr):
         return ""
@@ -446,6 +456,7 @@ def deleteHasGetterSetterIvar(implContent,dynamicStr):
         resultString = replaceLastChar(resultString, ";")
         return resultString
 
+# 删除dynamic
 
 
 if __name__ == '__main__':
@@ -459,36 +470,40 @@ if __name__ == '__main__':
         pathImpl = pathList[1]
         implContent = getImpleContent(className,readFileContent(pathImpl))
         dynamicStr = deleteHasGetterSetterIvar(implContent,dynamicStr)
-        isHasDynamicCodeResult = isHasDynamicCode(implContent)
-        if isHasDynamicCodeResult == False:
-            # 对指定类名写入dynamic
-            writeDynamicStringResult = writeDynamicString(pathImpl, className, dynamicStr)
-            if writeDynamicStringResult == True:
-                # 修改继承的类
-                pathInter = pathList[0]
-                modifyBaseClassResult = modifyBaseClass(pathInter, className)
-                if modifyBaseClassResult == False:
-                    print("异常：手动检查" + className + "类的dynamic和继承类"+pathInter)
-                else:
-                    successModifyClassList.append(className)
-                    modifyInitSelf(pathImpl, dynamicStr, className)
-                    find_Ivar(pathImpl,dynamicStr)
-        else:
-            print(className + "类已经有dynamic代码")
+        if len(dynamicStr) > 0:
+            isHasDynamicCodeResult = isHasDynamicCode(implContent)
+            if isHasDynamicCodeResult == False:
+                # 对指定类名写入dynamic
+                writeDynamicStringResult = writeDynamicString(pathImpl, className, dynamicStr)
+                if writeDynamicStringResult == True:
+                    # 修改继承的类
+                    pathInter = pathList[0]
+                    modifyBaseClassResult = modifyBaseClass(pathInter, className)
+                    if modifyBaseClassResult == False:
+                        print("【重要】修改继承类失败，请手动回滚"+className+"类的@dynamic代码，否则会crash")
+                    else:
+                        successModifyClassList.append(className)
+                        modify_ivarToSelfIvar(pathImpl, dynamicStr, className)
+            else:
+                print(className + "类已经有dynamic代码")
 
+    print("*成功修改了" + str(propertyCount) + "个属性，" + str(len(successModifyClassList)) + "个类,预估收益：" + str(
+        propertyCount * 200 / 1024) + "KB")
+    print("---------------------------------------------------")
     print("成功修改的类：")
     print(successModifyClassList)
-    print("成功修改了"+str(propertyCount)+"个属性，"+str(len(successModifyClassList))+"个类")
-    print("*****************************************************")
+    print("---------------------------------------------------")
     print("名字符合，但是不是继承NSObject的类，可以手动看下可不可以优化：")
-    print("*****************************************************")
     print(baseNotNSObjectClassList)
-    print("*****************************************************")
-    print("非oc和已知基础类型的属性，手动review下：")
+    print("---------------------------------------------------")
+    print("非oc和已知基础类型的属性，手动review是否可以手动优化：")
     print(notOCObjcAndBaseTypeDataList)
-    print("*****************************************************")
+    print("---------------------------------------------------")
     print("枚举属性：")
     print(enumIVarList)
+    print("---------------------------------------------------")
+    print("不符合要求的属性")
+    print(cannotModifyPropertyList)
     print("Model属性动态化修改完成，有问题联系chenzebing@bytedance.com")
 
 

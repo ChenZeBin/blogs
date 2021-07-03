@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2B2752F1267B34B20021AFFB /* FourModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2752F0267B34B20021AFFB /* FourModel.m */; };
+		2B95ED152689CBA900B13FBE /* TestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95ED142689CBA900B13FBE /* TestItem.m */; };
+		2B97F5FB268F269500A4559E /* AddMethodTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B97F5FA268F269500A4559E /* AddMethodTestModel.m */; };
 		2BBD84A32670CA3400E992E0 /* IESLiveDynamicModelDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD84A22670CA3400E992E0 /* IESLiveDynamicModelDefine.m */; };
 		2BBD84A92670CB2400E992E0 /* IESLiveDynamicModelUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD84A82670CB2400E992E0 /* IESLiveDynamicModelUtil.m */; };
+		2BD4D2692685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD4D2682685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.m */; };
 		2BF0FAB7266E49D700CB2743 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAB6266E49D700CB2743 /* AppDelegate.m */; };
 		2BF0FABA266E49D700CB2743 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FAB9266E49D700CB2743 /* SceneDelegate.m */; };
 		2BF0FABD266E49D700CB2743 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF0FABC266E49D700CB2743 /* ViewController.m */; };
@@ -24,10 +27,17 @@
 		078DF6D1CEDC78E97BD3C4DF /* libPods-DynamicModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DynamicModel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B2752EF267B34B20021AFFB /* FourModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourModel.h; sourceTree = "<group>"; };
 		2B2752F0267B34B20021AFFB /* FourModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourModel.m; sourceTree = "<group>"; };
+		2B95E5392689B9A700B13FBE /* IESLiveDynamicModelInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicModelInterface.h; sourceTree = "<group>"; };
+		2B95ED132689CBA900B13FBE /* TestItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestItem.h; sourceTree = "<group>"; };
+		2B95ED142689CBA900B13FBE /* TestItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestItem.m; sourceTree = "<group>"; };
+		2B97F5F9268F269500A4559E /* AddMethodTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMethodTestModel.h; sourceTree = "<group>"; };
+		2B97F5FA268F269500A4559E /* AddMethodTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMethodTestModel.m; sourceTree = "<group>"; };
 		2BBD84A12670CA3400E992E0 /* IESLiveDynamicModelDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicModelDefine.h; sourceTree = "<group>"; };
 		2BBD84A22670CA3400E992E0 /* IESLiveDynamicModelDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IESLiveDynamicModelDefine.m; sourceTree = "<group>"; };
 		2BBD84A72670CB2400E992E0 /* IESLiveDynamicModelUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicModelUtil.h; sourceTree = "<group>"; };
 		2BBD84A82670CB2400E992E0 /* IESLiveDynamicModelUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IESLiveDynamicModelUtil.m; sourceTree = "<group>"; };
+		2BD4D2672685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IESLiveDynamicTypeCodeDefine.h; sourceTree = "<group>"; };
+		2BD4D2682685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IESLiveDynamicTypeCodeDefine.m; sourceTree = "<group>"; };
 		2BF0FAB2266E49D600CB2743 /* DynamicModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF0FAB5266E49D700CB2743 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BF0FAB6266E49D700CB2743 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,12 +106,19 @@
 				2BF0FAC3266E49DE00CB2743 /* LaunchScreen.storyboard */,
 				2BF0FAC6266E49DE00CB2743 /* Info.plist */,
 				2BF0FAC7266E49DE00CB2743 /* main.m */,
+				2B95E5392689B9A700B13FBE /* IESLiveDynamicModelInterface.h */,
 				2BBD84A72670CB2400E992E0 /* IESLiveDynamicModelUtil.h */,
 				2BBD84A82670CB2400E992E0 /* IESLiveDynamicModelUtil.m */,
 				2BBD84A12670CA3400E992E0 /* IESLiveDynamicModelDefine.h */,
 				2BBD84A22670CA3400E992E0 /* IESLiveDynamicModelDefine.m */,
+				2BD4D2672685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.h */,
+				2BD4D2682685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.m */,
 				2B2752EF267B34B20021AFFB /* FourModel.h */,
 				2B2752F0267B34B20021AFFB /* FourModel.m */,
+				2B95ED132689CBA900B13FBE /* TestItem.h */,
+				2B95ED142689CBA900B13FBE /* TestItem.m */,
+				2B97F5F9268F269500A4559E /* AddMethodTestModel.h */,
+				2B97F5FA268F269500A4559E /* AddMethodTestModel.m */,
 			);
 			path = DynamicModel;
 			sourceTree = "<group>";
@@ -215,7 +232,10 @@
 				2BF0FAB7266E49D700CB2743 /* AppDelegate.m in Sources */,
 				2BF0FAC8266E49DE00CB2743 /* main.m in Sources */,
 				2BF0FABA266E49D700CB2743 /* SceneDelegate.m in Sources */,
+				2B95ED152689CBA900B13FBE /* TestItem.m in Sources */,
+				2BD4D2692685DA710028EFC4 /* IESLiveDynamicTypeCodeDefine.m in Sources */,
 				2BBD84A32670CA3400E992E0 /* IESLiveDynamicModelDefine.m in Sources */,
+				2B97F5FB268F269500A4559E /* AddMethodTestModel.m in Sources */,
 				2BBD84A92670CB2400E992E0 /* IESLiveDynamicModelUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

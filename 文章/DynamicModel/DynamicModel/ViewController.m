@@ -6,18 +6,16 @@
 //
 
 #import "ViewController.h"
-#import <objc/runtime.h>
 #import "FourModel.h"
-
-struct Student {
-    int iii;
-};
-
-typedef struct Student Student;
+#import "AddMethodTestModel.h"
+#import <objc/runtime.h>
 
 @interface ViewController ()
 
-@property (nonatomic, assign) Student student;
+@property (nonatomic, strong) NSString *MyString;
+- (void)testNotFoundMethod1;
+- (void)testNotFoundMethod2;
+- (void)testNotFoundMethod3;
 
 @end
 
@@ -25,18 +23,37 @@ typedef struct Student Student;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    
     FourModel *fourModel = [FourModel new];
-  
-    int intArray[5] = {1, 2, 3, 4, 5};
-    NSLog(@"int[]      : %s", @encode(typeof(intArray)));
+    AddMethodTestModel *add = [AddMethodTestModel new];
+ 
+    objc_property_t p = class_getProperty([self class], "myString");
+    
+    NSString *ivarName = @"MyString";
+    NSMutableDictionary *dic = @{}.mutableCopy;
+    [dic setValue:ivarName forKey:ivarName];
+    NSLog(@"%lf",[[NSDate date] timeIntervalSince1970]);
+    Class cls = [self class];
+    for (NSInteger i = 0; i < 1000000; i++) {
+        cls;
+    }
+    NSLog(@"%lf",[[NSDate date] timeIntervalSince1970]);
 
-    float floatArray[3] = {0.1f, 0.2f, 0.3f};
-    NSLog(@"float[]    : %s", @encode(typeof(floatArray)));
-    NSTextAlignment;
+    
+    NSLog(@"");
+    
+    
+    CFMutableDictionaryRef myDict = CFDictionaryCreateMutable(kCFAllocatorDefault, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    NSString *key = @"someKey";
+    NSNumber *value = [NSNumber numberWithInt: 1];
+  
 }
 
 
 
 
+
+
+
 @end
+
